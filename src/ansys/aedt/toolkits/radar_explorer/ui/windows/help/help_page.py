@@ -1,0 +1,70 @@
+# -*- coding: utf-8 -*-
+
+################################################################################
+## Form generated from reading UI file 'help_page.ui'
+##
+## Created by: Qt User Interface Compiler version 6.6.2
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
+
+from PySide6.QtCore import QCoreApplication
+from PySide6.QtCore import QMetaObject
+from PySide6.QtCore import QSize
+from PySide6.QtCore import Qt
+from PySide6.QtGui import QFont
+from PySide6.QtWidgets import QGridLayout
+from PySide6.QtWidgets import QLabel
+from PySide6.QtWidgets import QSizePolicy
+from PySide6.QtWidgets import QSpacerItem
+from PySide6.QtWidgets import QVBoxLayout
+
+
+class Ui_help(object):
+    def setupUi(self, help):
+        if not help.objectName():
+            help.setObjectName("help")
+        help.resize(1205, 805)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(help.sizePolicy().hasHeightForWidth())
+        help.setSizePolicy(sizePolicy)
+        help.setMinimumSize(QSize(0, 0))
+        self.verticalLayout_2 = QVBoxLayout(help)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.help_layout = QVBoxLayout()
+        self.help_layout.setObjectName("help_layout")
+        self.help_layout.setContentsMargins(-1, 0, -1, -1)
+        self.help_label = QLabel(help)
+        self.help_label.setObjectName("help_label")
+        font = QFont()
+        font.setPointSize(10)
+        font.setBold(False)
+        self.help_label.setFont(font)
+        self.help_label.setAlignment(Qt.AlignCenter)
+
+        self.help_layout.addWidget(self.help_label)
+
+        self.help_grid = QGridLayout()
+        self.help_grid.setObjectName("help_grid")
+        self.help_grid.setContentsMargins(0, 0, 0, 0)
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.help_grid.addItem(self.verticalSpacer, 0, 0, 1, 1)
+
+        self.help_layout.addLayout(self.help_grid)
+
+        self.verticalLayout_2.addLayout(self.help_layout)
+
+        self.retranslateUi(help)
+
+        QMetaObject.connectSlotsByName(help)
+
+    # setupUi
+
+    def retranslateUi(self, help):
+        help.setWindowTitle(QCoreApplication.translate("help", "Form", None))
+        self.help_label.setText(QCoreApplication.translate("help", "AEDT Design", None))
+
+    # retranslateUi
