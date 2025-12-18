@@ -318,6 +318,7 @@ jobs:
   doc-style:
     name: "Documentation style"
     runs-on: ubuntu-latest
+    needs: [pr-title]
     permissions:
       contents: read
     steps:
