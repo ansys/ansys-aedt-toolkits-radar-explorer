@@ -318,14 +318,12 @@ jobs:
   doc-style:
     name: "Documentation style"
     runs-on: ubuntu-latest
-    needs: [pr-title]
     permissions:
       contents: read
     steps:
       - uses: ansys/actions/doc-style@41f86da4c9ead510db9135e428e33df9cc6f92e1 # v10.2.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          vale-version: "3.4.1"
 
   doc-build:
     name: "Build documentation"
