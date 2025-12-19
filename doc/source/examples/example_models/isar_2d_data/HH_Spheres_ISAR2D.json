@@ -1,0 +1,38 @@
+{
+  "solution": "Spheres_ISAR2D",
+  "monostatic_file": "HH_data_Spheres_ISAR2D.h5",
+  "model_units": "meter",
+  "frequency_units": "GHz",
+  "model_info": {
+    "Sphere1": [
+      "Sphere1.obj",
+      [
+        143,
+        175,
+        143
+      ],
+      1.0,
+      "meter"
+    ],
+    "Sphere2": [
+      "Sphere2.obj",
+      [
+        143,
+        175,
+        143
+      ],
+      1.0,
+      "meter"
+    ],
+    "Sphere3": [
+      "Sphere3.obj",
+      [
+        143,
+        175,
+        143
+      ],
+      1.0,
+      "meter"
+    ]
+  }
+}
