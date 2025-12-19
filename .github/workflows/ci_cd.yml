@@ -581,15 +581,13 @@ jobs:
           files: |
             /tmp/artifacts/Radar-Explorer-Toolkit-Installer-ubuntu_24.04/*.zip
 
-# # TODO: To update once public
-#       - name: "Upload artifacts to PyPI using trusted publisher"
-#         uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0
-#         with:
-#           repository-url: "https://upload.pypi.org/legacy/"
-#           print-hash: true
-#           packages-dir: ${{ env.PACKAGE_NAME }}-artifacts
-#           skip-existing: false
-
+      - name: "Upload artifacts to PyPI using trusted publisher"
+        uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0
+        with:
+          repository-url: "https://upload.pypi.org/legacy/"
+          print-hash: true
+          packages-dir: ${{ env.PACKAGE_NAME }}-artifacts
+          skip-existing: false
 
   doc-deploy-dev:
     name: "Deploy development documentation"
