@@ -467,6 +467,14 @@ jobs:
           name: ${{ env.LIBRARY_NAME }}-artifacts
           path: ${{ env.LIBRARY_NAME }}-artifacts
 
+      - name: "Upload artifacts to PyPI using trusted publisher"
+        uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0
+        with:
+          repository-url: "https://upload.pypi.org/legacy/"
+          print-hash: true
+          packages-dir: ${{ env.LIBRARY_NAME }}-artifacts
+          skip-existing: false
+
       - name: Release to GitHub
         uses: ansys/actions/release-github@41f86da4c9ead510db9135e428e33df9cc6f92e1 # v10.2.3
         with:
@@ -497,14 +505,6 @@ jobs:
         with:
           files: |
             /tmp/artifacts/Radar-Explorer-Toolkit-Installer-ubuntu_24.04/*.zip
-
-      - name: "Upload artifacts to PyPI using trusted publisher"
-        uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0
-        with:
-          repository-url: "https://upload.pypi.org/legacy/"
-          print-hash: true
-          packages-dir: ${{ env.LIBRARY_NAME }}-artifacts
-          skip-existing: false
 
   doc-deploy-stable:
     name: "Deploy stable documentation"
