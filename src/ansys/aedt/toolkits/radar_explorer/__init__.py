@@ -22,4 +22,4 @@ Radar Explorer Toolkit.
 ansys.aedt.toolkits.radar_explorer
 """
 
-__version__ = "0.1.dev0"
+__version__ = "0.1.0"
