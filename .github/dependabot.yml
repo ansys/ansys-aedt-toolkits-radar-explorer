@@ -17,7 +17,7 @@ updates:
       - "maintenance"
       - "dependencies"
     commit-message:
-      prefix: "BUILD(pip)"
+      prefix: "build(pip)"
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -38,4 +38,4 @@ updates:
       - "maintenance"
       - "dependencies"
     commit-message:
-      prefix: "BUILD(actions)"
+      prefix: "build(actions)"

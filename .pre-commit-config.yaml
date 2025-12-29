@@ -1,7 +1,7 @@
 ci:
-    autofix_commit_msg: 'CHORE: Auto fixes from pre-commit hooks'
+    autofix_commit_msg: 'chore: Auto fixes from pre-commit hooks'
     autoupdate_branch: 'chore/pre-commit-autoupdate'
-    autoupdate_commit_msg: 'CHORE: Pre-commit automatic update'
+    autoupdate_commit_msg: 'chore: Pre-commit automatic update'
     autoupdate_schedule: weekly
 
 exclude: |
