@@ -52,7 +52,7 @@ jobs:
         uses: ansys/actions/check-pr-title@41f86da4c9ead510db9135e428e33df9cc6f92e1 # v10.2.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          use-upper-case: false
+          use-upper-case: true
 
   labeler:
     name: "Labels"
