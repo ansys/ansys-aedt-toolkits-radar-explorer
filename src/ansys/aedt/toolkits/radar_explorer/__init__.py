@@ -22,4 +22,6 @@ Radar Explorer Toolkit.
 ansys.aedt.toolkits.radar_explorer
 """
 
-__version__ = "0.5.dev0"
+import importlib.metadata as importlib_metadata
+
+__version__ = importlib_metadata.version(__name__)
