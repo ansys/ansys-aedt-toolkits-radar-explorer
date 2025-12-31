@@ -116,7 +116,7 @@ jobs:
         shell: pwsh
         run: Get-ChildItem -Recurse dist
 
-      - uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: Radar-Explorer-Toolkit-Installer-windows
           path: dist/*.exe
@@ -219,7 +219,7 @@ jobs:
           echo "APPLICATION_VERSION=v${version}" >> $GITHUB_ENV
           zip -r $zip_name radar_explorer_toolkit.deb installer.sh postInstallScript.sh
 
-      - uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: Radar-Explorer-Toolkit-Installer-ubuntu_${{ matrix.os }}
           path: Radar-Explorer-Toolkit-Installer-ubuntu_${{ env.OS_VERSION_PROCESSED }}.zip
@@ -296,7 +296,7 @@ jobs:
 
       - name: "Upload coverage results"
         if: ${{ matrix.python-version == env.MAIN_PYTHON_VERSION  }}
-        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           path: .cov/total-html
           name: html-total-coverage
