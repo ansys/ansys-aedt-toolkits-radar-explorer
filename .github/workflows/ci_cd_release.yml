@@ -366,12 +366,11 @@ jobs:
           path: .cov/total-html
           name: html-total-coverage
 
-      # TODO: enable when public
-      # - uses: codecov/codecov-action@18283e04ce6e62d37312384ff67231eb8fd56d24 # v5.4.3
-      #   with:
-      #     name: codecov-unit-tests
-      #     files: ./coverage.xml
-      #     flags: linux_unit
+      - uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 # v5.5.1
+        with:
+          name: codecov-tests-linux
+          files: .cov/total.xml
+          flags: windows_tests
 
   tests_linux:
     name: "Linux Tests"
