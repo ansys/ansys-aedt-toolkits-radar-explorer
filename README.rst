@@ -17,7 +17,7 @@ Radar Explorer Toolkit
    :target: https://opensource.org/licenses/Apache-2.0
 
 .. |coverage| image:: https://codecov.io/gh/ansys/ansys-aedt-toolkits-radar-explorer/branch/main/graph/badge.svg
-   :target: https://codecov.io/gh/ansys/ansys-aedt-toolkits-radar-explorer-explorer
+   :target: https://codecov.io/gh/ansys/ansys-aedt-toolkits-radar-explorer
 
 .. |ruff| image:: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json
    :target: https://github.com/astral-sh/ruff
