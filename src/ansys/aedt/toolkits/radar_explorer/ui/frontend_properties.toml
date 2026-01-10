@@ -1,0 +1,124 @@
+[defaults]
+toolkit_name= "radar_explorer"
+backend_url= "127.0.0.1"
+backend_port= 5001
+debug= true
+app_name= "Radar Explorer"
+main_title= "Ansys Radar Explorer"
+welcome_message= "Welcome to the Radar Explorer"
+version= "v0.1.0"
+copyright= "By: ansys"
+year= 2025
+theme= "ansys_dark.json"
+high_resolution= false
+left_column_size= {minimum= 0, maximum= 450}
+right_column_size= {minimum= 0, maximum= 400}
+startup_size= [1400, 720]
+
+[[defaults.add_left_menus]]
+btn_icon= "icon_home.svg"
+btn_id= "home_menu_custom"
+btn_text= "Home"
+btn_tooltip= "Home"
+show_top= true
+is_active= false
+
+[[defaults.add_left_menus]]
+btn_icon= "icon_incident_wave.svg"
+btn_id= "incident_menu"
+btn_text= "Incident Wave"
+btn_tooltip= "Incident Wave"
+show_top= true
+is_active= false
+
+[[defaults.add_left_menus]]
+btn_icon= "icon_mode.svg"
+btn_id= "mode_menu"
+btn_text= "Mode Select"
+btn_tooltip= "Mode Select"
+show_top= true
+is_active= false
+
+[[defaults.add_left_menus]]
+btn_icon= "icon_solve.svg"
+btn_id= "solve_menu"
+btn_text= "Solver Setup"
+btn_tooltip= "Solver Setup"
+show_top= true
+is_active= false
+
+[[defaults.add_left_menus]]
+btn_icon= "icon_plot_3d.svg"
+btn_id= "post_3d_menu"
+btn_text= "3D Postprocessing"
+btn_tooltip= "3D Post"
+show_top= true
+is_active= false
+
+[[defaults.add_left_menus]]
+btn_icon= "icon_plot_2d.svg"
+btn_id= "post_2d_menu"
+btn_text= "2D Postprocessing"
+btn_tooltip= "2D Post"
+show_top= true
+is_active= false
+
+[[defaults.add_left_menus]]
+btn_icon= "help.svg"
+btn_id= "help_menu"
+btn_text= "Help"
+btn_tooltip= "Help"
+show_top= false
+is_active= false
+
+[[defaults.add_left_menus]]
+btn_icon= "icon_log.svg"
+btn_id= "progress_menu"
+btn_text= "Progress"
+btn_tooltip= "Progress"
+show_top= false
+is_active= false
+
+[radar_explorer]
+precision = 4
+all_scene_actors = {}
+reports = {}
+solution_names = []
+metadata_files = []
+configuration_file = ""
+model_units = "meter"
+
+num_contours = 10
+
+rotation = "ZYZ"
+angle1 = "0.0deg"
+angle2 = "0.0deg"
+angle3 = "0.0deg"
+
+select_mode = "Range Profile"
+center_frequency = "10.0GHz"
+
+range_mode = "System"
+fft_bandwidth = "1.0GHz"
+frequencies = "101"
+maximum_range = "15.1395m"
+range_resolution = "0.1499m"
+
+azimuth_mode = "System"
+azimuth_span = "6.0deg"
+azimuth_angles = "101"
+maximum_cross_range_azimuth = "14.314m"
+cross_range_azimuth_resolution = "0.1417m"
+
+elevation_mode = "System"
+elevation_span = "4.0deg"
+elevation_angles= "101"
+maximum_cross_range_elevation = "21.4711m"
+cross_range_elevation_resolution = "0.2126m"
+
+ray_density = "4.0"
+bounces = "3"
+fast_frequency_looping = false
+ptd_utd = false
+cores = "4"
+solve_interactive = false

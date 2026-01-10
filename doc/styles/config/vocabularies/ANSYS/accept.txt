@@ -1,0 +1,46 @@
+2[Dd]
+3[Dd]
+(?i)AEDT
+(?i)Ansys
+(?i)API
+(?i)UI
+AEDT's
+Api.py
+application
+[Bb]owtie
+CPython
+datas
+docstring
+GitHub
+HFSS
+[Mm]akefile
+Properties.json
+PyAEDT
+PyAEDT Common Toolkit
+pyaedt
+postprocess
+[Pp]ostprocessing
+PTD
+UTD
+[Pp]yinstaller
+[Pp]ytools
+REST API
+Rest_api.py
+run_toolkit
+toolkit's
+toolkits
+toml
+url
+uv
+venv
+walkthrough
+monostatic
+Cant
+RCS
+Powershell
+pytest
+html
+matplotlib
+Python
+Radar Explorer Toolkit
+Colormap
