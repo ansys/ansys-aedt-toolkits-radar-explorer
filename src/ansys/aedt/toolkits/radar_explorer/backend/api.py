@@ -419,7 +419,7 @@ class ToolkitBackend(AEDTCommon):
                 old_model_objects = self.aedtapp.modeler.model_objects
 
                 if new_extension == ".stl" and cad_file.is_file():
-                    self.aedtapp.modeler.import_3d_cad(str(cad_file), create_lightweigth_part=True)
+                    self.aedtapp.modeler.import_3d_cad(str(cad_file), create_lightweight_part=True)
                 else:  # pragma: no cover
                     self.logger.error("Wrong CAD format.")
                     self.release_aedt(False, False)
@@ -761,9 +761,14 @@ class ToolkitBackend(AEDTCommon):
                 setup_name = properties.setup.setup_name
                 sweep_name = properties.setup.sweep_name
                 setup_sweep_name = f"{setup_name} : {sweep_name}"
-                variations = self.aedtapp.available_variations.nominal_w_values_dict_w_dependent
+                self.logger.info(f"Exporting RCS data for setup and sweep: {setup_sweep_name}.")
 
-                excitations = self.aedtapp.excitations
+                independent_flag = self.aedtapp.available_variations.independent
+                self.aedtapp.available_variations.independent = False
+                variations = self.aedtapp.available_variations.nominal_values
+                self.aedtapp.available_variations.independent = independent_flag
+
+                excitations = self.aedtapp.excitation_names
                 if len(excitations) > 1:
                     if excitation == excitations[0]:
                         self.aedtapp.edit_sources(assignment={excitations[0]: "1", excitations[1]: "0"})
@@ -888,7 +893,7 @@ class ToolkitBackend(AEDTCommon):
             self.connect_design()
         available_setups = []
         if self.aedtapp:
-            available_setups = self.aedtapp.excitations
+            available_setups = self.aedtapp.excitation_names
             self.release_aedt(False, False)
         return available_setups
 
