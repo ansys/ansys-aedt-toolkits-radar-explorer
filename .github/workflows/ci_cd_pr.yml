@@ -502,7 +502,6 @@ jobs:
           source .venv_linux/bin/activate
           pytest -v -m run_utils
 
-
   build-library:
     name: "Build library artifacts"
     needs: [doc-build, tests_windows, tests_linux, build-application-windows, build-application-linux-debian]
