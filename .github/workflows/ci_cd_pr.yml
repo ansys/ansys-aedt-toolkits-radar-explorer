@@ -426,6 +426,18 @@ jobs:
           python -m coverage html -d .cov\total-html
           python -m coverage xml -o .cov\total.xml
 
+      - name: "Upload coverage results"
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          path: .cov/total-html
+          name: html-total-coverage
+
+      - uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 # v5.5.1
+        with:
+          name: codecov-tests-linux
+          files: .cov/total.xml
+          flags: windows_tests
+
   tests_linux:
     name: "Linux Tests"
     runs-on: [ self-hosted, Linux, pyaedt-toolkit ]
@@ -489,7 +501,6 @@ jobs:
           export LD_LIBRARY_PATH=${ANSYSEM_ROOT252}/common/mono/Linux64/lib64:$LD_LIBRARY_PATH
           source .venv_linux/bin/activate
           pytest -v -m run_utils
-
 
   build-library:
     name: "Build library artifacts"
