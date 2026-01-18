@@ -1,0 +1,36 @@
+{
+    "precision": 2,
+    "solution_names": [
+        "rcs_scenario"
+    ],
+    "metadata_files": [
+    ],
+    "configuration_file": "",
+    "rotation": "ZYZ",
+    "angle1": "0.0deg",
+    "angle2": "0.0deg",
+    "angle3": "0.0deg",
+    "select_mode": "2D ISAR",
+    "center_frequency": "10.0GHz",
+    "range_mode": "Performance",
+    "fft_bandwidth": "1.0GHz",
+    "frequencies": "101",
+    "maximum_range": "15.139519128999133m",
+    "range_resolution": "0.14989622899999142m",
+    "azimuth_mode": "System",
+    "azimuth_span": "6.0deg",
+    "azimuth_angles": "101",
+    "maximum_cross_range_azimuth": "14.314035477710828m",
+    "cross_range_azimuth_resolution": "0.14172312354169136m",
+    "elevation_mode": "System",
+    "elevation_span": "4.0deg",
+    "elevation_angles": "101",
+    "maximum_cross_range_elevation": "21.47105321656624m",
+    "cross_range_elevation_resolution": "0.21258468531253702m",
+    "ray_density": "0.01",
+    "bounces": "3",
+    "fast_frequency_looping": false,
+    "ptd_utd": false,
+    "solve_interactive": false,
+    "cores": "4"
+}
