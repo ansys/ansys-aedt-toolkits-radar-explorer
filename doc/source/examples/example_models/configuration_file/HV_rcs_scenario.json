@@ -1,0 +1,18 @@
+{
+  "solution": "rcs_scenario",
+  "monostatic_file": "HV_data_rcs_scenario.h5",
+  "model_units": "meter",
+  "frequency_units": "GHz",
+  "model_info": {
+    "car_obj": [
+      "car_obj.obj",
+      [
+        143,
+        175,
+        143
+      ],
+      1.0,
+      "meter"
+    ]
+  }
+}
