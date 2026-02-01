@@ -1,0 +1,47 @@
+[defaults]
+toolkit_name = "radar"
+log_file = "radar_backend.log"
+debug = true
+
+[radar]
+multiplier = 1.0
+geometry = "Box"
+model = {}
+units = "meter"
+rotation_order = "ZYZ"
+rotation_ang1 = 0.0
+rotation_ang2 = 0.0
+rotation_ang3 = 0.0
+calculation_type = "Range Profile"
+aspect_ang_phi = 6.0
+aspect_ang_theta = 4.0
+num_phi = 201
+num_theta = 201
+range_max = 1.0
+range_max_az = 1.0
+range_max_el = 1.0
+range_res = 0.5
+range_res_az = 0.5
+range_res_el = 0.5
+
+[setup]
+ray_density = 1.0
+num_bounces = 3
+ffl = true
+ptd_utd = false
+center_freq = 10.0e9
+fft_bandwidth = 1.0e9
+sim_freq_lower = 1.0e9
+sim_freq_upper = 1.0e9
+num_freq = 101
+setup_name = "rcs_setup"
+sweep_name = "Sweep"
+plane_wave_names = ""
+num_cores = 4
+solve_interactive = false
+
+[cad]
+input_file = []
+material = []
+position = []
+model_units = "meter"
