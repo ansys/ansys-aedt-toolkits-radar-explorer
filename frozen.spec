@@ -35,6 +35,7 @@ added_files = [
 
 # Missing metadata
 added_files += copy_metadata('ansys-tools-visualization_interface')
+added_files += copy_metadata('ansys-aedt-toolkits-radar_explorer')
 
 if is_linux:
     added_files +=[(os.path.join(ASSETS_PATH, 'scripts'), 'assets')]
