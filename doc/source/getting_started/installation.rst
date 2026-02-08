@@ -107,13 +107,13 @@ Install the Radar Explorer Toolkit from PyPI like any other open source Python p
 
    .. code:: bash
 
-       python -m pip install ansys-aedt-toolkits-radar-explorer_explorer[all]
+       python -m pip install ansys-aedt-toolkits-radar-explorer[all]
 
 #. To install only the backend methods:
 
    .. code:: bash
 
-       pip install ansys-aedt-toolkits-radar_explorer
+       pip install ansys-aedt-toolkits-radar-explorer
 
 #. If you installed both the backend and UI methods, launch the toolkit:
 
