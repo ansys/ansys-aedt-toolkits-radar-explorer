@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2024 - 2025 ANSYS, Inc. and/or its affiliates.
+# Copyright (C) 2024 - 2026 ANSYS, Inc. and/or its affiliates.
 # SPDX-License-Identifier: Apache-2.0
 #
 #
@@ -17,17 +17,20 @@
 # limitations under the License.
 
 from pathlib import Path
-import re
+import sys
 
 try:
     THIS_PATH = Path(__file__).parent
 except NameError:
     THIS_PATH = Path.cwd()
 
-with Path("src/ansys/aedt/toolkits/radar_explorer/__init__.py").open("r") as f:
-    content = f.read()
+try:
+    from ansys.aedt.toolkits.radar_explorer import __version__
+except ImportError:  # pragma: no cover
+    sys.path.append(str(THIS_PATH.parent))
+    sys.path.append(str(THIS_PATH.parent / "src"))
+    from ansys.aedt.toolkits.radar_explorer import __version__
 
-match = re.search(r'__version__\s*=\s*["\']([^"\']+)["\']', content)
-if match:
+if __version__:
     with (THIS_PATH / "VERSION").open("w") as v:
-        v.write(match.group(1))
+        v.write(__version__)

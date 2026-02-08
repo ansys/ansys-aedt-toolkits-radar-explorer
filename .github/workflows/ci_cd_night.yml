@@ -24,31 +24,15 @@ jobs:
     name: "Vulnerabilities"
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: read   # Required to read repository content for vulnerability scanning
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-        with:
-          persist-credentials: false
-
-      - name: Set up Python
-        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+      - uses: ansys/actions/check-vulnerabilities@36cd86710c966963f4dcec56a9670171618cf76a # v10.2.4
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
-
-      - name: Install Bandit
-        run: pip install bandit
-
-      - name: Run Bandit
-        run: |
-          bandit -r src -f json -o bandit-result.json
-
-      - name: Install Safety
-        run: pip install safety
-
-      - name: Run Safety
-        run: |
-          # Ignore vulnerability: https://data.safetycli.com/v/67599/97c
-          safety check -o bare --continue-on-error -i 67599 --save-json safety.json
+          python-package-name: ${{ env.LIBRARY_NAME }}
+          token: ${{ secrets.PYANSYS_CI_BOT_TOKEN }}
+          dev-mode: ${{ github.ref != 'refs/heads/main' }}
+          extra-targets: 'freeze'
 
   doc-build:
     name: "Build documentation"
@@ -58,7 +42,7 @@ jobs:
       contents: read
     needs: vulnerabilities
     steps:
-      - uses: ansys/actions/doc-build@41f86da4c9ead510db9135e428e33df9cc6f92e1 # v10.2.3
+      - uses: ansys/actions/doc-build@36cd86710c966963f4dcec56a9670171618cf76a # v10.2.4
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           use-python-cache: false
@@ -72,11 +56,11 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
 
-      - uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
@@ -116,7 +100,7 @@ jobs:
         shell: pwsh
         run: Get-ChildItem -Recurse dist
 
-      - uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: Radar-Explorer-Toolkit-Installer-windows
           path: dist/*.exe
@@ -133,11 +117,11 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
 
-      - uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
@@ -219,7 +203,7 @@ jobs:
           echo "APPLICATION_VERSION=v${version}" >> $GITHUB_ENV
           zip -r $zip_name radar_explorer_toolkit.deb installer.sh postInstallScript.sh
 
-      - uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: Radar-Explorer-Toolkit-Installer-ubuntu_${{ matrix.os }}
           path: Radar-Explorer-Toolkit-Installer-ubuntu_${{ env.OS_VERSION_PROCESSED }}.zip
@@ -231,12 +215,12 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
@@ -295,18 +279,16 @@ jobs:
           python -m coverage xml -o .cov\total.xml
 
       - name: "Upload coverage results"
-        if: ${{ matrix.python-version == env.MAIN_PYTHON_VERSION  }}
-        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           path: .cov/total-html
           name: html-total-coverage
 
-      # TODO: enable when public
-      # - uses: codecov/codecov-action@18283e04ce6e62d37312384ff67231eb8fd56d24 # v5.4.3
-      #   with:
-      #     name: codecov-unit-tests
-      #     files: ./coverage.xml
-      #     flags: linux_unit
+      - uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de # v5.5.2
+        with:
+          name: codecov-tests-linux
+          files: .cov/total.xml
+          flags: windows_tests
 
   tests_linux:
     name: "Linux Tests"
@@ -318,12 +300,12 @@ jobs:
       ANSYSEM_ROOT252: '/usr/ansys_inc/v252/AnsysEM'
       ANS_NODEPCHECK: '1'
     steps:
-      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
@@ -372,6 +354,7 @@ jobs:
           source .venv_linux/bin/activate
           pytest -v -m run_utils
 
+
   build-library:
     name: "Build library artifacts"
     needs: [doc-build, tests_windows, tests_linux, build-application-windows, build-application-linux-debian]
@@ -381,7 +364,7 @@ jobs:
       contents: read
       id-token: write # Required for OIDC token generation (for provenance signing)
     steps:
-      - uses: ansys/actions/build-library@41f86da4c9ead510db9135e428e33df9cc6f92e1 # v10.2.3
+      - uses: ansys/actions/build-library@36cd86710c966963f4dcec56a9670171618cf76a # v10.2.4
         with:
           library-name: ${{ env.LIBRARY_NAME }}
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
@@ -394,7 +377,7 @@ jobs:
     permissions:
       contents: write # Needed to update files on the gh-pages branch
     steps:
-      - uses: ansys/actions/doc-deploy-dev@41f86da4c9ead510db9135e428e33df9cc6f92e1 # v10.2.3
+      - uses: ansys/actions/doc-deploy-dev@36cd86710c966963f4dcec56a9670171618cf76a # v10.2.4
         with:
           cname: ${{ env.DOCUMENTATION_CNAME }}
           token: ${{ secrets.GITHUB_TOKEN }}

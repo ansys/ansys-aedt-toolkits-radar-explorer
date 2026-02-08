@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2024 - 2025 ANSYS, Inc. and/or its affiliates.
+# Copyright (C) 2024 - 2026 ANSYS, Inc. and/or its affiliates.
 # SPDX-License-Identifier: Apache-2.0
 #
 #
@@ -22,4 +22,6 @@ Radar Explorer Toolkit.
 ansys.aedt.toolkits.radar_explorer
 """
 
-__version__ = "0.1.0"
+import importlib.metadata as importlib_metadata
+
+__version__ = importlib_metadata.version(__name__)

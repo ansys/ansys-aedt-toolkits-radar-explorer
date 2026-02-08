@@ -10,14 +10,14 @@ Radar Explorer Toolkit
 .. |PythonVersion| image:: https://img.shields.io/badge/python-3.10+-blue.svg
    :target: https://www.python.org/downloads/
 
-.. |GH-CI| image:: https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/actions/workflows/ci_cd.yml/badge.svg
+.. |GH-CI| image:: https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/actions/workflows/ci_cd_pr.yml/badge.svg
    :target: https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/actions/workflows/ci_cd.yml
 
 .. |Apache| image:: https://img.shields.io/badge/License-Apache%202.0-blue.svg
    :target: https://opensource.org/licenses/Apache-2.0
 
-.. |coverage| image:: https://codecov.io/gh/ansys/ansys-aedt-toolkits-radar-explorer-explorer/branch/main/graph/badge.svg
-   :target: https://codecov.io/gh/ansys/ansys-aedt-toolkits-radar-explorer-explorer
+.. |coverage| image:: https://codecov.io/gh/ansys/ansys-aedt-toolkits-radar-explorer/branch/main/graph/badge.svg
+   :target: https://codecov.io/gh/ansys/ansys-aedt-toolkits-radar-explorer
 
 .. |ruff| image:: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json
    :target: https://github.com/astral-sh/ruff
