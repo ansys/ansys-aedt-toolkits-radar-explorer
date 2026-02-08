@@ -5,7 +5,7 @@ build-backend = "flit_core.buildapi"
 [project]
 # Check https://flit.readthedocs.io/en/latest/pyproject_toml.html for all available sections
 name = "ansys-aedt-toolkits-radar-explorer"
-version = "0.2.dev0"
+version = "0.1.1"
 description = "Toolkit to perform advanced Radar pre and post processing."
 readme = "README.rst"
 requires-python = ">=3.10"
