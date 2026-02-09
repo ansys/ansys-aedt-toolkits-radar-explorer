@@ -31,6 +31,7 @@ Finally it creates the setup and proceeds to analyze.
 
 # ## Perform required imports
 
+from pathlib import Path
 import shutil
 import sys
 import tempfile
@@ -63,7 +64,7 @@ temp_dir = tempfile.TemporaryDirectory(suffix="_ansys")
 # ## Example project
 
 original = r"example_models\ogive-IE.aedtz"
-project_name = temp_dir.name / "ogive-IE.aedtz"
+project_name = Path(temp_dir.name) / "ogive-IE.aedtz"
 shutil.copy(original, project_name)
 
 # ## Initialize toolkit
