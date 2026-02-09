@@ -16,10 +16,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# # Generate an ISAR 2D plot from RCS metadata
-#
-# This example demonstrates how to use the ``ToolkitBackend`` class.
-# It initiates AEDT through PyAEDT, opens an HFSS design, and proceeds to get the antenna data.
+"""
+.. _ref_isar_2d:
+
+========================================
+Generate an ISAR 2D plot from RCS metadata
+========================================
+
+This example demonstrates how to generate an ISAR 2D plot from RCS metadata.
+It loads the RCS data, upsamples the azimuth, and visualizes the ISAR 2D representation.
+"""
 
 
 # ## Perform required imports

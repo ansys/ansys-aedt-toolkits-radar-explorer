@@ -16,10 +16,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# # Generate a range profile plot from RCS metadata
-#
-# This example demonstrates how to use the ``ToolkitBackend`` class.
-# It initiates AEDT through PyAEDT, opens an HFSS design, and proceeds to get the antenna data.
+"""
+.. _ref_range_profile:
+
+=============================================
+Generate a range profile plot from RCS metadata
+=============================================
+
+This example demonstrates how to generate a range profile plot from RCS metadata.
+It loads RCS data from multiple polarizations and visualizes the range profile.
+"""
 
 
 # ## Perform required imports

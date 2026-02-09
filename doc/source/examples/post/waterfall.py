@@ -16,10 +16,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# # Generate a waterfall plot from RCS metadata
-#
-# This example demonstrates how to use the ``ToolkitBackend`` class.
-# It initiates AEDT through PyAEDT, opens an HFSS design, and proceeds to get the antenna data.
+"""
+.. _ref_waterfall_plot:
+
+========================================
+Generate a waterfall plot from RCS metadata
+========================================
+
+This example demonstrates how to generate a waterfall plot from RCS metadata.
+It loads the RCS data and uses the plotter to visualize the waterfall representation.
+"""
 
 
 # ## Perform required imports

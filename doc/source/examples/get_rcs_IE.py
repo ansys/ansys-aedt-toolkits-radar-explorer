@@ -16,11 +16,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# # Create RCS setup from existing HFSS design
-#
-# This example demonstrates how to use the ``ToolkitBackend`` class.
-# It initiates AEDT through PyAEDT, opens a HFSS design, creates a 3D Component and imports it in anew SBR+ design.
-# Finally it creates the setup and proceeds analyze.
+"""
+.. _ref_get_rcs_ie:
+
+========================================
+Create RCS setup from existing HFSS design
+========================================
+
+This example demonstrates how to use the ``ToolkitBackend`` class.
+It initiates AEDT through PyAEDT, opens a HFSS design, creates a 3D Component and imports it in a new SBR+ design.
+Finally it creates the setup and proceeds to analyze.
+"""
 
 
 # ## Perform required imports

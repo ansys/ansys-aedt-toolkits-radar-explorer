@@ -16,10 +16,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# # Import CAD and create ISAR 2D setup
-#
-# This example demonstrates how to use the ``ToolkitBackend`` class.
-# It initiates AEDT through PyAEDT, opens an SBR+ design, creates the setup, and analyzes it.
+"""
+.. _ref_import_cad:
+
+==================================
+Import CAD and create ISAR 2D setup
+==================================
+
+This example demonstrates how to use the ``ToolkitBackend`` class.
+It initiates AEDT through PyAEDT, opens an SBR+ design, creates the setup, and analyzes it.
+"""
 
 
 # ## Perform required imports
