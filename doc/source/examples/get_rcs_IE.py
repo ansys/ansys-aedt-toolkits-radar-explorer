@@ -19,8 +19,7 @@
 """
 .. _ref_get_rcs_ie:
 
-========================================
-Create RCS setup from existing HFSS design
+Create RCS setup from existing HFSS design.
 ========================================
 
 This example demonstrates how to use the ``ToolkitBackend`` class.

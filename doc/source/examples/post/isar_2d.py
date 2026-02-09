@@ -19,8 +19,7 @@
 """
 .. _ref_isar_2d:
 
-========================================
-Generate an ISAR 2D plot from RCS metadata
+Generate an ISAR 2D plot from RCS metadata.
 ========================================
 
 This example demonstrates how to generate an ISAR 2D plot from RCS metadata.

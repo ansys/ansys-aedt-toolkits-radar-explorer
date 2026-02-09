@@ -19,8 +19,7 @@
 """
 .. _ref_waterfall_plot:
 
-========================================
-Generate a waterfall plot from RCS metadata
+Generate a waterfall plot from RCS metadata.
 ========================================
 
 This example demonstrates how to generate a waterfall plot from RCS metadata.

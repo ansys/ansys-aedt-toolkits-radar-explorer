@@ -19,8 +19,7 @@
 """
 .. _ref_import_cad:
 
-==================================
-Import CAD and create ISAR 2D setup
+Import CAD and create ISAR 2D setup.
 ==================================
 
 This example demonstrates how to use the ``ToolkitBackend`` class.

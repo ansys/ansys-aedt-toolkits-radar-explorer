@@ -19,8 +19,7 @@
 """
 .. _ref_range_profile:
 
-=============================================
-Generate a range profile plot from RCS metadata
+Generate a range profile plot from RCS metadata.
 =============================================
 
 This example demonstrates how to generate a range profile plot from RCS metadata.

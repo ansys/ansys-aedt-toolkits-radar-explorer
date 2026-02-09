@@ -19,8 +19,7 @@
 """
 .. _ref_rcs_metadata:
 
-==================
-Read RCS metadata
+Read RCS metadata.
 ==================
 
 This example demonstrates how to read and visualize RCS metadata.
