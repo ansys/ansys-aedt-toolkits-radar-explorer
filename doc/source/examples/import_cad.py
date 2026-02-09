@@ -20,7 +20,7 @@
 .. _ref_import_cad:
 
 Import CAD and create ISAR 2D setup
-==================================
+===================================
 
 This example demonstrates how to use the ``ToolkitBackend`` class.
 It initiates AEDT through PyAEDT, opens an SBR+ design, creates the setup, and analyzes it.
@@ -58,8 +58,9 @@ temp_dir = tempfile.TemporaryDirectory(suffix="_ansys")
 # ## Get example project
 
 car_original = r"example_models\geometries\car_stl.stl"
+car_original_path = Path(Path(__file__).parent, car_original)
 car = Path(temp_dir.name) / "car.stl"
-shutil.copy(car_original, car)
+shutil.copy(car_original_path, car)
 
 # ## Initialize toolkit
 

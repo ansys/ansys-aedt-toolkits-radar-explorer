@@ -20,7 +20,7 @@
 .. _ref_range_profile:
 
 Generate a range profile plot from RCS metadata
-=============================================
+===============================================
 
 This example demonstrates how to generate a range profile plot from RCS metadata.
 It loads RCS data from multiple polarizations and visualizes the range profile.

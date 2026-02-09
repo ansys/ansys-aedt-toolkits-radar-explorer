@@ -16,21 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""
-.. _ref_get_rcs_ie:
-
-Create RCS setup from existing HFSS design
-========================================
-
-This example demonstrates how to use the ``ToolkitBackend`` class.
-It initiates AEDT through PyAEDT, opens a HFSS design, creates a 3D Component and imports it in a new SBR+ design.
-Finally it creates the setup and proceeds to analyze.
-"""
+# # Create RCS setup from existing HFSS design
+#
+# This example demonstrates how to use the ``ToolkitBackend`` class.
+# It initiates AEDT through PyAEDT, opens a HFSS design, creates a 3D Component and imports it in anew SBR+ design.
+# Finally it creates the setup and proceeds analyze.
 
 
 # ## Perform required imports
 
-from pathlib import Path
 import shutil
 import sys
 import tempfile
@@ -63,7 +57,7 @@ temp_dir = tempfile.TemporaryDirectory(suffix="_ansys")
 # ## Example project
 
 original = r"example_models\ogive-IE.aedtz"
-project_name = Path(temp_dir.name) / "ogive-IE.aedtz"
+project_name = temp_dir.name / "ogive-IE.aedtz"
 shutil.copy(original, project_name)
 
 # ## Initialize toolkit
