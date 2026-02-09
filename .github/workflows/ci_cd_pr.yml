@@ -1,6 +1,9 @@
 name:  "pull-request"
 on:
   pull_request:
+      # opened, reopened, and synchronize are default for pull_request
+      # edited - when PR title or body is changed
+      types: [opened, reopened, synchronize, edited]
 
 env:
   ANSYSLMD_LICENSE_FILE: ${{ format('1055@{0}', secrets.LICENSE_SERVER) }}
