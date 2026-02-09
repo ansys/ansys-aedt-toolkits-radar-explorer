@@ -24,7 +24,9 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
-    "ansys-aedt-toolkits-common[all]"
+    "ansys-aedt-toolkits-common[all]",
+    "sphinx-gallery==0.20.0",
+    "plotly >= 6.3.1,<7"
 ]
 
 [project.optional-dependencies]

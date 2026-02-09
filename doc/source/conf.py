@@ -32,6 +32,16 @@ from ansys_sphinx_theme import pyansys_logo_black
 from ansys_sphinx_theme import watermark
 from sphinx.util import logging
 
+import pyvista
+from pyvista.plotting.utilities.sphinx_gallery import DynamicScraper
+from plotly.io._sg_scraper import plotly_sg_scraper
+
+
+os.environ["PYANSYS_VISUALIZER_DOC_MODE"] = "true"
+pyvista.BUILDING_GALLERY = True
+os.environ["PYVISTA_BUILDING_GALLERY"] = "true"
+pyvista.OFF_SCREEN = True
+
 root_path = str(Path(__file__).parent.parent.parent)
 src_path = Path(root_path) / "src"
 sys.path.insert(0, str(root_path))
@@ -135,6 +145,7 @@ extensions = [
     "sphinx.ext.coverage",
     "sphinx_copybutton",
     "sphinx_design",
+    "sphinx_gallery.gen_gallery",
     "recommonmark",
     "numpydoc",
     "nbsphinx",
@@ -214,10 +225,25 @@ nbsphinx_allow_errors = True
 
 # Sphinx gallery customization
 
-nbsphinx_thumbnails = {}
-
-nbsphinx_custom_formats = {
-    ".py": ["jupytext.reads", {"fmt": ""}],
+sphinx_gallery_conf = {
+    # path to your examples scripts
+    "examples_dirs": ["examples"],
+    # path where to save gallery generated examples
+    "gallery_dirs": ["examples/gallery"],
+    # Pattern to search for example files
+    "filename_pattern": r"\.py",
+    # Remove the "Download all examples" button from the top level gallery
+    "download_all_examples": False,
+    # Sort gallery example by file name instead of number of lines (default)
+    # directory where function granular galleries are stored
+    "backreferences_dir": None,
+    # Modules for which function level galleries are created.
+    "doc_module": "ansys-aedt-toolkits-radar-explorer",
+    "image_scrapers": (DynamicScraper(), "matplotlib", plotly_sg_scraper),
+    "ignore_pattern": r"flycheck*|index\.rst|__init__\.py",
+    "thumbnail_size": (350, 350),
+    "remove_config_comments": True,
+    "show_signature": False,
 }
 
 exclude_patterns = ["_build", "sphinx_boogergreen_theme_1", "Thumbs.db", ".DS_Store", "*.txt", "conf.py"]
