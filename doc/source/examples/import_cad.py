@@ -30,6 +30,7 @@ It initiates AEDT through PyAEDT, opens an SBR+ design, creates the setup, and a
 # ## Perform required imports
 
 from pathlib import Path
+import os
 import shutil
 import sys
 import tempfile
@@ -58,7 +59,7 @@ temp_dir = tempfile.TemporaryDirectory(suffix="_ansys")
 # ## Get example project
 
 car_original = r"example_models\geometries\car_stl.stl"
-car_original_path = Path(Path(__file__).parent, car_original)
+car_original_path = Path(os.getcwd()) / car_original
 car = Path(temp_dir.name) / "car.stl"
 shutil.copy(car_original_path, car)
 
