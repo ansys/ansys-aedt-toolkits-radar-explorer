@@ -105,6 +105,8 @@ max-complexity = 10
 # "N806" (non-lowercase-variable-in-function)
 "src/ansys/aedt/toolkits/radar_explorer/ui/windows/**_column.py" = ["N801", "N802", "N803"]
 "src/ansys/aedt/toolkits/radar_explorer/ui/windows/**_page.py" = ["N801", "N802", "N803", "N806"]
+# Ignore D400 (first-line-should-end-with-period) for example files with RST docstrings
+"doc/source/examples/**/*.py" = ["D400"]
 
 [tool.coverage.run]
 source = ["ansys.aedt"]
