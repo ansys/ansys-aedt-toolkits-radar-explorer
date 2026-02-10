@@ -16,10 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# # Read RCS metadata
-#
-# This example demonstrates how to use the ``ToolkitBackend`` class.
-# It initiates AEDT through PyAEDT, opens an HFSS design, and proceeds to get the RCS data.
+"""
+.. _ref_rcs_metadata:
+
+Read RCS metadata
+=================
+
+This example demonstrates how to read and visualize RCS metadata.
+It loads RCS data from a JSON file and provides various plotting capabilities.
+"""
 
 
 # ## Perform required imports

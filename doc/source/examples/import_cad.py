@@ -16,10 +16,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# # Import CAD and create ISAR 2D setup
-#
-# This example demonstrates how to use the ``ToolkitBackend`` class.
-# It initiates AEDT through PyAEDT, opens an SBR+ design, creates the setup, and analyzes it.
+"""
+.. _ref_import_cad:
+
+Import CAD and create ISAR 2D setup
+===================================
+
+This example demonstrates how to use the ``ToolkitBackend`` class.
+It initiates AEDT through PyAEDT, opens an SBR+ design, creates the setup, and analyzes it.
+"""
 
 
 # ## Perform required imports
@@ -52,9 +57,10 @@ temp_dir = tempfile.TemporaryDirectory(suffix="_ansys")
 
 # ## Get example project
 
-car_original = r"example_models\geometries\car_stl.stl"
+car_original = r"example_models/geometries/car_stl.stl"
+car_original_path = Path(Path.cwd(), car_original)
 car = Path(temp_dir.name) / "car.stl"
-shutil.copy(car_original, car)
+shutil.copy(car_original_path, car)
 
 # ## Initialize toolkit
 
@@ -127,10 +133,6 @@ toolkit_api.update_isar_2d_properties(range_is_system=False, azimuth_is_system=F
 
 properties2 = toolkit_api.get_properties()
 
-# ## Connect design and load project information
-
-toolkit_api.launch_aedt()
-
 # ## Insert CAD
 
 toolkit_api.insert_cad_sbr()
@@ -154,7 +156,7 @@ toolkit_api.save_project()
 
 # ## Get RCS data
 
-rcs_metadata_vv = toolkit_api.export_rcs(v_plane_wave, "ComplexMonostaticRCSTheta", encode=False)
+rcs_metadata_vv = toolkit_api.export_rcs(excitation="IncWaveVpol", expression="ComplexMonostaticRCSTheta", encode=False)
 
 # ## Save and release AEDT
 
