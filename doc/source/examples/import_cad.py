@@ -58,7 +58,7 @@ temp_dir = tempfile.TemporaryDirectory(suffix="_ansys")
 # ## Get example project
 
 car_original = r"example_models\geometries\car_stl.stl"
-car_original_path = Path(Path.cwd()) / car_original
+car_original_path = Path(car_original)
 car = Path(temp_dir.name) / "car.stl"
 shutil.copy(car_original_path, car)
 
@@ -132,10 +132,6 @@ toolkit_api.update_isar_2d_properties(range_is_system=False, azimuth_is_system=F
 # Check how ``aspect_ang_phi`` and ``num_phi`` has changed.
 
 properties2 = toolkit_api.get_properties()
-
-# ## Connect design and load project information
-
-toolkit_api.launch_aedt()
 
 # ## Insert CAD
 
