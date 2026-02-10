@@ -57,8 +57,8 @@ temp_dir = tempfile.TemporaryDirectory(suffix="_ansys")
 
 # ## Get example project
 
-car_original = r"example_models\geometries\car_stl.stl"
-car_original_path = Path(car_original)
+car_original = r"example_models/geometries/car_stl.stl"
+car_original_path = Path(Path.cwd(), car_original)
 car = Path(temp_dir.name) / "car.stl"
 shutil.copy(car_original_path, car)
 
