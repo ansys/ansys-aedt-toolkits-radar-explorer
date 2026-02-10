@@ -156,7 +156,7 @@ toolkit_api.save_project()
 
 # ## Get RCS data
 
-rcs_metadata_vv = toolkit_api.export_rcs(v_plane_wave, "ComplexMonostaticRCSTheta", encode=False)
+rcs_metadata_vv = toolkit_api.export_rcs(excitation="IncWaveVpol", expression="ComplexMonostaticRCSTheta", encode=False)
 
 # ## Save and release AEDT
 
