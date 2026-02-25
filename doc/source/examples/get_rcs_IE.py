@@ -63,7 +63,7 @@ temp_dir = tempfile.TemporaryDirectory(suffix="_ansys")
 
 # ## Example project
 
-original = Path(os.getcwd()) / r"example_models\ogive-IE.aedtz"
+original = Path(Path.cwd()) / r"example_models\ogive-IE.aedtz"
 project_name = Path(temp_dir.name) / "ogive-IE.aedtz"
 shutil.copy(original, project_name)
 
