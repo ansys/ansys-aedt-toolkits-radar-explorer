@@ -8,7 +8,6 @@ Duplicate an HFSS-driven modal design to an SBR+ design, apply an RCS setup, ana
 
 .. nbgallery::
 
-    import_cad.py
     post/isar_2d.py
     post/rcs.py
     post/range_profile.py
