@@ -30,7 +30,6 @@ from ansys_sphinx_theme import get_version_match
 from ansys_sphinx_theme import latex
 from ansys_sphinx_theme import pyansys_logo_black
 from ansys_sphinx_theme import watermark
-from plotly.io._sg_scraper import plotly_sg_scraper
 import pyvista
 from pyvista.plotting.utilities.sphinx_gallery import DynamicScraper
 from sphinx.util import logging
@@ -237,7 +236,7 @@ sphinx_gallery_conf = {
     "backreferences_dir": None,
     # Modules for which function level galleries are created.
     "doc_module": "ansys-aedt-toolkits-radar-explorer",
-    "image_scrapers": (DynamicScraper(), "matplotlib", plotly_sg_scraper),
+    "image_scrapers": ("matplotlib", pyvista.Scraper()),
     "ignore_pattern": r"flycheck*|index\.rst|__init__\.py",
     "thumbnail_size": (350, 350),
     "remove_config_comments": True,
