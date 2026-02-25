@@ -31,7 +31,6 @@ from ansys_sphinx_theme import latex
 from ansys_sphinx_theme import pyansys_logo_black
 from ansys_sphinx_theme import watermark
 import pyvista
-from pyvista.plotting.utilities.sphinx_gallery import DynamicScraper
 from sphinx.util import logging
 
 os.environ["PYANSYS_VISUALIZER_DOC_MODE"] = "true"
