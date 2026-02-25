@@ -133,6 +133,10 @@ toolkit_api.update_isar_2d_properties(range_is_system=False, azimuth_is_system=F
 
 properties2 = toolkit_api.get_properties()
 
+# ## Connect design and load project information
+
+toolkit_api.launch_aedt()
+
 # ## Insert CAD
 
 toolkit_api.insert_cad_sbr()
@@ -152,21 +156,11 @@ properties = toolkit_api.get_properties()
 # ## Analyze
 
 toolkit_api.analyze()
-
-idle = toolkit_api.wait_to_be_idle()
-if not idle:
-    print("AEDT analyze failed or timed out.")
-    sys.exit()
-
 toolkit_api.save_project()
 
 # ## Get RCS data
 
 rcs_metadata_vv = toolkit_api.export_rcs(v_plane_wave, "ComplexMonostaticRCSTheta", encode=False)
-
-if not rcs_metadata_vv:
-    print("Error: RCS data export failed. Check AEDT simulation logs.")
-    sys.exit()
 
 # ## Save and release AEDT
 
