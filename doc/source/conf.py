@@ -236,7 +236,7 @@ sphinx_gallery_conf = {
     # Modules for which function level galleries are created.
     "doc_module": "ansys-aedt-toolkits-radar-explorer",
     "image_scrapers": ("matplotlib", pyvista.Scraper()),
-    "ignore_pattern": r"flycheck*|index\.rst|__init__\.py",
+    "ignore_pattern": r"flycheck*|index\.rst|__init__\.py|images",
     "thumbnail_size": (350, 350),
     "remove_config_comments": True,
     "show_signature": False,
