@@ -225,7 +225,7 @@ sphinx_gallery_conf = {
     # path to your examples scripts
     "examples_dirs": ["examples"],
     # path where to save gallery generated examples
-    "gallery_dirs": ["examples"],
+    "gallery_dirs": ["examples/gallery"],
     # Pattern to search for example files
     "filename_pattern": r"\.py",
     # Remove the "Download all examples" button from the top level gallery
@@ -236,7 +236,7 @@ sphinx_gallery_conf = {
     # Modules for which function level galleries are created.
     "doc_module": "ansys-aedt-toolkits-radar-explorer",
     "image_scrapers": ("matplotlib", pyvista.Scraper()),
-    "ignore_pattern": r"flycheck*|index\.rst|__init__\.py|images",
+    "ignore_pattern": r"flycheck*|index\.rst|__init__\.py",
     "thumbnail_size": (350, 350),
     "remove_config_comments": True,
     "show_signature": False,
