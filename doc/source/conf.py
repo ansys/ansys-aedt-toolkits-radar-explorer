@@ -30,13 +30,19 @@ from ansys_sphinx_theme import get_version_match
 from ansys_sphinx_theme import latex
 from ansys_sphinx_theme import pyansys_logo_black
 from ansys_sphinx_theme import watermark
+import plotly.io as pio
+from plotly.io._sg_scraper import plotly_sg_scraper
 import pyvista
+from pyvista.plotting.utilities.sphinx_gallery import DynamicScraper
 from sphinx.util import logging
 
 os.environ["PYANSYS_VISUALIZER_DOC_MODE"] = "true"
 pyvista.BUILDING_GALLERY = True
 os.environ["PYVISTA_BUILDING_GALLERY"] = "true"
 pyvista.OFF_SCREEN = True
+os.environ["PYANSYS_VISUALIZER_HTML_BACKEND"] = "true"
+
+pio.renderers.default = "sphinx_gallery"
 
 root_path = str(Path(__file__).parent.parent.parent)
 src_path = Path(root_path) / "src"
@@ -142,6 +148,7 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_design",
     "sphinx_gallery.gen_gallery",
+    "pyvista.ext.viewer_directive",
     "recommonmark",
     "numpydoc",
     "nbsphinx",
@@ -223,9 +230,9 @@ nbsphinx_allow_errors = True
 
 sphinx_gallery_conf = {
     # path to your examples scripts
-    "examples_dirs": ["examples"],
+    "examples_dirs": ["examples/post"],
     # path where to save gallery generated examples
-    "gallery_dirs": ["examples/gallery"],
+    "gallery_dirs": ["examples/rendered"],
     # Pattern to search for example files
     "filename_pattern": r"\.py",
     # Remove the "Download all examples" button from the top level gallery
@@ -235,7 +242,7 @@ sphinx_gallery_conf = {
     "backreferences_dir": None,
     # Modules for which function level galleries are created.
     "doc_module": "ansys-aedt-toolkits-radar-explorer",
-    "image_scrapers": ("matplotlib", pyvista.Scraper()),
+    "image_scrapers": (DynamicScraper(), "matplotlib", plotly_sg_scraper),
     "ignore_pattern": r"flycheck*|index\.rst|__init__\.py",
     "thumbnail_size": (350, 350),
     "remove_config_comments": True,

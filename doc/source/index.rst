@@ -33,7 +33,7 @@ The Radar Explorer Toolkit is a Python interface for creating and analyzing rada
 
     .. grid-item-card:: Examples :fa:`scroll`
         :padding: 2 2 2 2
-        :link: examples/index
+        :link: examples/rendered/index
         :link-type: doc
 
         Explore examples that show how to use the toolkit.
@@ -51,7 +51,7 @@ The Radar Explorer Toolkit is a Python interface for creating and analyzing rada
    getting_started/index
    toolkit/ui
    toolkit/api
-   examples/index
+   examples/rendered/index
    contributing
    changelog
 
