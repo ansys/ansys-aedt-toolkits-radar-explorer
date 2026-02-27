@@ -19,6 +19,7 @@
 """
 .. _ref_isar_2d:
 
+==========================================
 Generate an ISAR 2D plot from RCS metadata
 ==========================================
 
@@ -26,51 +27,79 @@ This example demonstrates how to generate an ISAR 2D plot from RCS metadata.
 It loads the RCS data, upsamples the azimuth, and visualizes the ISAR 2D representation.
 """
 
-
-# ## Perform required imports
+##########################
+# Perform required imports
+# ========================
 
 from ansys.aedt.toolkits.radar_explorer.rcs_visualization import MonostaticRCSData
 from ansys.aedt.toolkits.radar_explorer.rcs_visualization import MonostaticRCSPlotter
 
-# ## Get metadata
+
+##############
+# Get metadata
+# ============
 
 metadata_vv = r"..\example_models\isar_2d_data\HH_Spheres_ISAR2D.json"
 
-# ## Load RCS
+
+##########
+# Load RCS
+# ========
 
 rcs_data_vv = MonostaticRCSData(metadata_vv)
 
-# ## Get ISAR 2D data
+
+##################
+# Get ISAR 2D data
+# ================
 
 rcs_data_vv.upsample_azimuth = 201
 data = rcs_data_vv.isar_2d
 
-# ## Load RCS plotter
+
+##################
+# Load RCS plotter
+# ================
 
 rcs_data_vv_plotter = MonostaticRCSPlotter(rcs_data_vv)
 
-# ## Plot 2D ISAR data
+
+###################
+# Plot 2D ISAR data
+# =================
 
 rcs_data_vv_plotter.plot_isar_2d()
 
-# ## Plot 2D ISAR settings
+
+#######################
+# Plot 2D ISAR settings
+# =====================
 
 rcs_data_vv_plotter.add_isar_2d_settings(size_range=18, size_cross_range=12)
 rcs_data_vv_plotter.plot_scene()
 
-# ## Plot ISAR
+
+###########
+# Plot ISAR
+# =========
 
 rcs_data_vv_plotter.clear_scene()
 rcs_data_vv_plotter.add_isar_2d()
 rcs_data_vv_plotter.plot_scene()
 
-# ## Plot ISAR 2D with relief
+
+##########################
+# Plot ISAR 2D with relief
+# ========================
 
 rcs_data_vv_plotter.clear_scene()
 rcs_data_vv_plotter.add_isar_2d(plot_type="Relief")
 rcs_data_vv_plotter.plot_scene()
 
-# ## Plot ISAR 2D with projection
+
+##############################
+# Plot ISAR 2D with projection
+# ============================
 
 # rcs_data_vv_plotter.clear_scene()
 # rcs_data_vv_plotter.add_isar_2d()

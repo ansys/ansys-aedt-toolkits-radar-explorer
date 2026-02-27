@@ -36,13 +36,12 @@ import pyvista
 from pyvista.plotting.utilities.sphinx_gallery import DynamicScraper
 from sphinx.util import logging
 
+pio.renderers.default = "sphinx_gallery"
+
 os.environ["PYANSYS_VISUALIZER_DOC_MODE"] = "true"
 pyvista.BUILDING_GALLERY = True
 os.environ["PYVISTA_BUILDING_GALLERY"] = "true"
 pyvista.OFF_SCREEN = True
-os.environ["PYANSYS_VISUALIZER_HTML_BACKEND"] = "true"
-
-pio.renderers.default = "sphinx_gallery"
 
 root_path = str(Path(__file__).parent.parent.parent)
 src_path = Path(root_path) / "src"
