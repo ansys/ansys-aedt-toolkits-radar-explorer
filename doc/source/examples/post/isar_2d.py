@@ -34,7 +34,6 @@ It loads the RCS data, upsamples the azimuth, and visualizes the ISAR 2D represe
 from ansys.aedt.toolkits.radar_explorer.rcs_visualization import MonostaticRCSData
 from ansys.aedt.toolkits.radar_explorer.rcs_visualization import MonostaticRCSPlotter
 
-
 ##############
 # Get metadata
 # ============
