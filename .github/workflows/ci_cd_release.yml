@@ -50,19 +50,13 @@ jobs:
           dev-mode: ${{ github.ref != 'refs/heads/main' }}
           extra-targets: 'freeze'
 
-  code-style:
-    name: "Code style"
+  check-actions:
+    name: "Check GitHub Actions security"
     runs-on: ubuntu-latest
     permissions:
       contents: read
     needs: vulnerabilities
     steps:
-
-      - uses: ansys/actions/code-style@36cd86710c966963f4dcec56a9670171618cf76a # v10.2.4
-        with:
-          python-version: ${{ env.MAIN_PYTHON_VERSION }}
-          use-python-cache: false
-
       - uses: ansys/actions/check-actions-security@36cd86710c966963f4dcec56a9670171618cf76a # v10.2.4
         with:
           generate-summary: true
@@ -99,7 +93,7 @@ jobs:
   wheelhouse:
     name: "Wheelhouse ${{ matrix.os }} / ${{ matrix.python}} "
     runs-on: ${{ matrix.os }}
-    needs: code-style
+    needs: check-actions
     permissions:
       contents: read
     strategy:
