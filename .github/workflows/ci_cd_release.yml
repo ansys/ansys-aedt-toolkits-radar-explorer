@@ -382,7 +382,6 @@ jobs:
       - name: Test API
         timeout-minutes: 15
         run: |
-          export LD_LIBRARY_PATH=${ANSYSEM_ROOT252}/common/mono/Linux64/lib64:$LD_LIBRARY_PATH
           source .venv_linux/bin/activate
           pytest -v -m radar_toolkit_api
 
@@ -390,28 +389,24 @@ jobs:
       - name: Test Domain Transform API
         timeout-minutes: 15
         run: |
-          export LD_LIBRARY_PATH=${ANSYSEM_ROOT252}/common/mono/Linux64/lib64:$LD_LIBRARY_PATH
           source .venv_linux/bin/activate
           pytest -v -m domain_transforms
 
       - name: Test REST API
         timeout-minutes: 5
         run: |
-          export LD_LIBRARY_PATH=${ANSYSEM_ROOT252}/common/mono/Linux64/lib64:$LD_LIBRARY_PATH
           source .venv_linux/bin/activate
           pytest -v -m rest_api_toolkit
 
       - name: Test Visualization
         timeout-minutes: 15
         run: |
-          export LD_LIBRARY_PATH=${ANSYSEM_ROOT252}/common/mono/Linux64/lib64:$LD_LIBRARY_PATH
           source .venv_linux/bin/activate
           pytest -v -m radar_visualization
 
       - name: Test Run Toolkit utils
         timeout-minutes: 15
         run: |
-          export LD_LIBRARY_PATH=${ANSYSEM_ROOT252}/common/mono/Linux64/lib64:$LD_LIBRARY_PATH
           source .venv_linux/bin/activate
           pytest -v -m run_utils
 
