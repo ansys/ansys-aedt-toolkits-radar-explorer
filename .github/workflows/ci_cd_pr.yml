@@ -52,7 +52,7 @@ jobs:
       pull-requests: read # Needed to check the title of the PR
     steps:
       - name: Check the title of the pull request
-        uses: ansys/actions/check-pr-title@36cd86710c966963f4dcec56a9670171618cf76a # v10.2.4
+        uses: ansys/actions/check-pr-title@7d55ff0b9f67c77dae50a286d711ee1ae27b0a25 # v10.2.12
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           use-upper-case: true
@@ -95,7 +95,7 @@ jobs:
       !contains(github.event.pull_request.labels.*.name, 'ci:skip') &&
       !contains(github.event.pull_request.labels.*.name, 'docs:changelog:skip')
     steps:
-      - uses: ansys/actions/doc-changelog@36cd86710c966963f4dcec56a9670171618cf76a # v10.2.4
+      - uses: ansys/actions/doc-changelog@7d55ff0b9f67c77dae50a286d711ee1ae27b0a25 # v10.2.12
         with:
           token: ${{ secrets.PYANSYS_CI_BOT_TOKEN }}
           use-pull-request-title: true
@@ -110,7 +110,7 @@ jobs:
     permissions:
       contents: read   # Required to read repository content for vulnerability scanning
     steps:
-      - uses: ansys/actions/check-vulnerabilities@36cd86710c966963f4dcec56a9670171618cf76a # v10.2.4
+      - uses: ansys/actions/check-vulnerabilities@7d55ff0b9f67c77dae50a286d711ee1ae27b0a25 # v10.2.12
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           python-package-name: ${{ env.LIBRARY_NAME }}
@@ -125,7 +125,7 @@ jobs:
       contents: read
     needs: vulnerabilities
     steps:
-      - uses: ansys/actions/check-actions-security@36cd86710c966963f4dcec56a9670171618cf76a # v10.2.4
+      - uses: ansys/actions/check-actions-security@7d55ff0b9f67c77dae50a286d711ee1ae27b0a25 # v10.2.12
         with:
           generate-summary: true
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -139,7 +139,7 @@ jobs:
       contents: read
       pull-requests: read # Needed for vale to access the content to check
     steps:
-      - uses: ansys/actions/doc-style@36cd86710c966963f4dcec56a9670171618cf76a # v10.2.4
+      - uses: ansys/actions/doc-style@7d55ff0b9f67c77dae50a286d711ee1ae27b0a25 # v10.2.12
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -151,7 +151,7 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: ansys/actions/doc-build@36cd86710c966963f4dcec56a9670171618cf76a # v10.2.4
+      - uses: ansys/actions/doc-build@7d55ff0b9f67c77dae50a286d711ee1ae27b0a25 # v10.2.12
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           use-python-cache: false
@@ -170,7 +170,7 @@ jobs:
         os : [windows-latest, ubuntu-latest]
         python: ['3.10', '3.11', '3.12', '3.13']
     steps:
-      - uses: ansys/actions/build-wheelhouse@36cd86710c966963f4dcec56a9670171618cf76a # v10.2.4
+      - uses: ansys/actions/build-wheelhouse@7d55ff0b9f67c77dae50a286d711ee1ae27b0a25 # v10.2.12
         with:
           library-name: ${{ env.LIBRARY_NAME }}
           operating-system: ${{ matrix.os }}
@@ -229,7 +229,7 @@ jobs:
         shell: pwsh
         run: Get-ChildItem -Recurse dist
 
-      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: Radar-Explorer-Toolkit-Installer-windows
           path: dist/*.exe
@@ -332,7 +332,7 @@ jobs:
           echo "APPLICATION_VERSION=v${version}" >> $GITHUB_ENV
           zip -r $zip_name radar_explorer_toolkit.deb installer.sh postInstallScript.sh
 
-      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: Radar-Explorer-Toolkit-Installer-ubuntu_${{ matrix.os }}
           path: Radar-Explorer-Toolkit-Installer-ubuntu_${{ env.OS_VERSION_PROCESSED }}.zip
@@ -408,12 +408,12 @@ jobs:
           python -m coverage xml -o .cov\total.xml
 
       - name: "Upload coverage results"
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           path: .cov/total-html
           name: html-total-coverage
 
-      - uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de # v5.5.2
+      - uses: codecov/codecov-action@57e3a136b779b570ffcdbf80b3bdc90e7fab3de2 # v6.0.0
         with:
           name: codecov-tests-linux
           files: .cov/total.xml
@@ -487,7 +487,7 @@ jobs:
       contents: read
       id-token: write # Required for OIDC token generation (for provenance signing)
     steps:
-      - uses: ansys/actions/build-library@36cd86710c966963f4dcec56a9670171618cf76a # v10.2.4
+      - uses: ansys/actions/build-library@7d55ff0b9f67c77dae50a286d711ee1ae27b0a25 # v10.2.12
         with:
           library-name: ${{ env.LIBRARY_NAME }}
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
