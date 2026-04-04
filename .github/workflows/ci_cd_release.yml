@@ -161,7 +161,7 @@ jobs:
         shell: pwsh
         run: Get-ChildItem -Recurse dist
 
-      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: Radar-Explorer-Toolkit-Installer-windows
           path: dist/*.exe
@@ -264,7 +264,7 @@ jobs:
           echo "APPLICATION_VERSION=v${version}" >> $GITHUB_ENV
           zip -r $zip_name radar_explorer_toolkit.deb installer.sh postInstallScript.sh
 
-      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: Radar-Explorer-Toolkit-Installer-ubuntu_${{ matrix.os }}
           path: Radar-Explorer-Toolkit-Installer-ubuntu_${{ env.OS_VERSION_PROCESSED }}.zip
@@ -340,12 +340,12 @@ jobs:
           python -m coverage xml -o .cov\total.xml
 
       - name: "Upload coverage results"
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           path: .cov/total-html
           name: html-total-coverage
 
-      - uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de # v5.5.2
+      - uses: codecov/codecov-action@57e3a136b779b570ffcdbf80b3bdc90e7fab3de2 # v6.0.0
         with:
           name: codecov-tests-linux
           files: .cov/total.xml
@@ -435,7 +435,7 @@ jobs:
       contents: write # Needed for releasing to GitHub
     steps:
       - name: Download the library artifacts from build-library step
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: ${{ env.LIBRARY_NAME }}-artifacts
           path: ${{ env.LIBRARY_NAME }}-artifacts
@@ -449,24 +449,24 @@ jobs:
           generate_release_notes: false
 
       - name: "Download all artifacts that got generated in the CI/CD"
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           path: /tmp/artifacts
 
       - name: List artifacts
         run: ls -R /tmp/artifacts
 
-      - uses: softprops/action-gh-release@a06a81a03ee405af7f2048a818ed3f03bbf83c7b # v2.5.0
+      - uses: softprops/action-gh-release@153bb8e04406b158c6c84fc1615b65b24149a1fe # v2.6.1
         with:
           files: |
             /tmp/artifacts/Radar-Explorer-Toolkit-Installer-windows/*.exe
 
-      - uses: softprops/action-gh-release@a06a81a03ee405af7f2048a818ed3f03bbf83c7b # v2.5.0
+      - uses: softprops/action-gh-release@153bb8e04406b158c6c84fc1615b65b24149a1fe # v2.6.1
         with:
           files: |
             /tmp/artifacts/Radar-Explorer-Toolkit-Installer-ubuntu_22.04/*.zip
 
-      - uses: softprops/action-gh-release@a06a81a03ee405af7f2048a818ed3f03bbf83c7b # v2.5.0
+      - uses: softprops/action-gh-release@153bb8e04406b158c6c84fc1615b65b24149a1fe # v2.6.1
         with:
           files: |
             /tmp/artifacts/Radar-Explorer-Toolkit-Installer-ubuntu_24.04/*.zip
