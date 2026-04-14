@@ -22,7 +22,6 @@ from datetime import datetime
 import os
 from pathlib import Path
 import sys
-import warnings
 
 from ansys_sphinx_theme import ansys_favicon
 from ansys_sphinx_theme import ansys_logo_white
@@ -33,23 +32,20 @@ from ansys_sphinx_theme import pyansys_logo_black
 from ansys_sphinx_theme import watermark
 from sphinx.util import logging
 
-# Suppress graphics-related warnings during documentation build
-warnings.filterwarnings("ignore", category=UserWarning)
-warnings.filterwarnings("ignore", message=".*graphics.*")
-warnings.filterwarnings("ignore", message=".*ERROR_GRAPHICS_REQUIRED.*")
-
 root_path = str(Path(__file__).parent.parent.parent)
 src_path = Path(root_path) / "src"
-
-# Always add src to path to ensure modules can be imported during doc build
 sys.path.insert(0, str(root_path))
 sys.path.insert(0, str(src_path))
-
 print("root_path:", root_path)
 print("src_path:", str(src_path))
 
-# Import version
-from ansys.aedt.toolkits.radar_explorer import __version__  # noqa: E402
+try:
+    from ansys.aedt.toolkits.radar_explorer import __version__
+except ImportError:  # pragma: no cover
+    sys.path.append(root_path)
+
+    sys.path.append(str(src_path))
+    from ansys.aedt.toolkits.radar_explorer import __version__
 
 logger = logging.getLogger(__name__)
 
@@ -143,23 +139,6 @@ extensions = [
     "numpydoc",
     "nbsphinx",
 ]
-
-# Autosummary settings
-autosummary_generate = True
-autosummary_imported_members = False
-
-# Autodoc settings
-autodoc_default_options = {
-    "members": True,
-    "undoc-members": True,
-    "show-inheritance": True,
-}
-
-# Suppress warnings for modules that might have import issues
-suppress_warnings = ["autosummary"]
-
-# Mock imports for modules that may not be available or have import issues
-autodoc_mock_imports = []
 
 # Intersphinx mapping
 intersphinx_mapping = {
