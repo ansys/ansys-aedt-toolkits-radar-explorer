@@ -117,7 +117,6 @@ jobs:
           token: ${{ secrets.PYANSYS_CI_BOT_TOKEN }}
           dev-mode: ${{ github.ref != 'refs/heads/main' }}
           extra-targets: 'freeze'
-          python-package-index-options: '--prerelease=allow'
 
   check-actions:
     name: "Check GitHub Actions security"
@@ -195,7 +194,7 @@ jobs:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
       - name: Install Dependencies
-        run: pip install .[freeze] --prerelease=allow
+        run: pip install .[freeze]
 
       - name: Extract version
         run: |
@@ -289,7 +288,7 @@ jobs:
           sudo gem install fpm
 
       - name: Install Python Dependencies
-        run: pip install .[freeze] --prerelease=allow
+        run: pip install .[freeze]
 
       - name: Extract version
         run: |
@@ -493,5 +492,3 @@ jobs:
           library-name: ${{ env.LIBRARY_NAME }}
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           attest-provenance: true
-
-

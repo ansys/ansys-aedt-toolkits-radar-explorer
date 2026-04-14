@@ -33,7 +33,6 @@ jobs:
           token: ${{ secrets.PYANSYS_CI_BOT_TOKEN }}
           dev-mode: ${{ github.ref != 'refs/heads/main' }}
           extra-targets: 'freeze'
-          python-package-index-options: '--prerelease=allow'
 
   doc-build:
     name: "Build documentation"
@@ -66,7 +65,7 @@ jobs:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
       - name: Install Dependencies
-        run: pip install .[freeze] --prerelease=allow
+        run: pip install .[freeze]
 
       - name: Extract version
         run: |
@@ -160,7 +159,7 @@ jobs:
           sudo gem install fpm
 
       - name: Install Python Dependencies
-        run: pip install .[freeze] --prerelease=allow
+        run: pip install .[freeze]
 
       - name: Extract version
         run: |
