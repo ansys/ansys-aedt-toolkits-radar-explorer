@@ -28,7 +28,7 @@ This module contains the configuration and fixture for the pytest-based tests fo
 The default configuration can be changed by placing a file called local_config.json in the same
 directory as this module. An example of the contents of local_config.json
 {
-  "desktop_version": "2024.1",
+  "desktop_version": "2026.1",
   "non_graphical": false,
   "use_grpc": true
 }
@@ -49,7 +49,7 @@ import pytest
 
 from ansys.aedt.core.generic.settings import settings
 
-DEFAULT_CONFIG = {"desktop_version": "2025.2", "non_graphical": True, "use_grpc": True, "debug": False}
+DEFAULT_CONFIG = {"desktop_version": "2026.1", "non_graphical": True, "use_grpc": True, "debug": False}
 LOCAL_CFG_FILE = "local_config.json"
 PROJECT_NAME = "Test"
 
