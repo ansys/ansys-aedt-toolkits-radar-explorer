@@ -34,17 +34,18 @@ from sphinx.util import logging
 
 root_path = str(Path(__file__).parent.parent.parent)
 src_path = Path(root_path) / "src"
-sys.path.insert(0, str(root_path))
-sys.path.insert(0, str(src_path))
-print("root_path:", root_path)
-print("src_path:", str(src_path))
 
+# Try to import from installed package first, then fall back to src directory
 try:
     from ansys.aedt.toolkits.radar_explorer import __version__
-except ImportError:  # pragma: no cover
-    sys.path.append(root_path)
 
-    sys.path.append(str(src_path))
+    print("Loaded from installed package")
+except ImportError:  # pragma: no cover
+    # If not installed, add src to path for development mode
+    sys.path.insert(0, str(root_path))
+    sys.path.insert(0, str(src_path))
+    print("root_path:", root_path)
+    print("src_path:", str(src_path))
     from ansys.aedt.toolkits.radar_explorer import __version__
 
 logger = logging.getLogger(__name__)
@@ -143,6 +144,16 @@ extensions = [
 # Autosummary settings
 autosummary_generate = True
 autosummary_imported_members = False
+
+# Autodoc settings
+autodoc_default_options = {
+    "members": True,
+    "undoc-members": True,
+    "show-inheritance": True,
+}
+
+# Suppress warnings for modules that might have import issues
+suppress_warnings = ["autosummary"]
 
 # Intersphinx mapping
 intersphinx_mapping = {
