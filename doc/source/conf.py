@@ -140,6 +140,10 @@ extensions = [
     "nbsphinx",
 ]
 
+# Autosummary settings
+autosummary_generate = True
+autosummary_imported_members = False
+
 # Intersphinx mapping
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
