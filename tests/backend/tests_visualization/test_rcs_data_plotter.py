@@ -19,24 +19,15 @@
 import json
 from pathlib import Path
 import shutil
-import warnings
 
 import pandas as pd
 import pytest
 
-from ansys.aedt.core.internal.checks import ERROR_GRAPHICS_REQUIRED
-from ansys.aedt.core.internal.checks import check_graphics_available
 from ansys.aedt.core.visualization.plot.matplotlib import ReportPlotter
 from ansys.aedt.toolkits.radar_explorer.rcs_visualization import MonostaticRCSData
 from ansys.aedt.toolkits.radar_explorer.rcs_visualization import MonostaticRCSPlotter
+from ansys.tools.visualization_interface import Plotter
 from tests import TESTS_VISUALIZATION_PATH
-
-try:
-    check_graphics_available()
-
-    from ansys.tools.visualization_interface import Plotter
-except ImportError:  # pragma: no cover
-    warnings.warn(ERROR_GRAPHICS_REQUIRED)
 
 
 @pytest.fixture(scope="module", autouse=True)
