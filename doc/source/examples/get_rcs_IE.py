@@ -38,7 +38,7 @@ from ansys.aedt.toolkits.radar_explorer.rcs_visualization import MonostaticRCSPl
 #
 # Set AEDT version.
 
-aedt_version = "2025.2"
+aedt_version = "2026.1"
 
 # ## Set non-graphical mode
 #
