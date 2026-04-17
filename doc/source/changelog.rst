@@ -9,6 +9,69 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`0.2.0 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/releases/tag/v0.2.0>`_ - April 17, 2026
+===========================================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Dependencies
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Bump actions/upload-artifact from 6.0.0 to 7.0.0
+          - `#36 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/36>`_
+
+        * - Bump actions/download-artifact from 7.0.0 to 8.0.1
+          - `#39 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/39>`_
+
+        * - Bump softprops/action-gh-release from 2.5.0 to 2.6.1
+          - `#42 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/42>`_
+
+        * - Bump codecov/codecov-action from 5.5.2 to 6.0.0
+          - `#44 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/44>`_
+
+        * - Bump ansys/actions from 10.2.4 to 10.2.12
+          - `#45 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/45>`_
+
+
+  .. tab-item:: Fixed
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Update project dependencies and perform related adjustments to fix broken 3D \`\`pyvista\`\` plots in doc
+          - `#34 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/34>`_
+
+
+  .. tab-item:: Maintenance
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Update CHANGELOG for v0.1.1
+          - `#26 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/26>`_
+
+        * - Add input \`\`use-upper-case: true\`\` to \`\`ansys/actions/doc-deploy-changelog\`\` in \`\`ci_cd_release.yml\`\` workflow
+          - `#27 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/27>`_
+
+        * - Remove code style and use pre-commit.ci
+          - `#32 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/32>`_
+
+        * - Remove pyaedt dependency from pyproject.toml
+          - `#48 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/48>`_
+
+        * - Use correct env variable when publishing
+          - `#50 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/50>`_
+
+        * - Refactor release job
+          - `#52 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/52>`_
+
+
 `0.1.1 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/releases/tag/v0.1.1>`_ - February 08, 2026
 ==============================================================================================================
 
