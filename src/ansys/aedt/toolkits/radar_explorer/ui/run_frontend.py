@@ -88,9 +88,7 @@ def _cleanup_pyvista():  # pragma: no cover
                                     obj.mesh = None
                             if hasattr(actor, "mesh"):
                                 actor.mesh = None
-        properties.radar_explorer.all_scene_actors = {
-            "model": {}, "annotations": {}, "results": {}, "plotter": {}
-        }
+        properties.radar_explorer.all_scene_actors = {"model": {}, "annotations": {}, "results": {}, "plotter": {}}
         gc.collect()
     except Exception:
         pass
@@ -388,7 +386,7 @@ class ApplicationWindow(QMainWindow, Frontend):
             if not is_left_visible:
                 self.ui.toggle_left_column()
 
-    def closeEvent(self, event):  # pragma: no cover
+    def closeEvent(self, event):  # pragma: no cover  # noqa: N802
         """Clean up PyVista plotter before closing."""
         try:
             plotter = self.home_menu.plotter
