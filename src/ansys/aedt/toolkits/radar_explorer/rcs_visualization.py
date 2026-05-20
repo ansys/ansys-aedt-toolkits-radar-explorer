@@ -1043,6 +1043,7 @@ class MonostaticRCSPlotter(object):
 
         if curves is not None:
             new = ReportPlotter()
+            new.show_logo = False
             new.show_legend = show_legend
             new.title = title
             new.size = size
@@ -1115,6 +1116,7 @@ class MonostaticRCSPlotter(object):
         z = r * np.cos(theta_grid)
 
         new = ReportPlotter()
+        new.show_logo = False
         new.show_legend = True
         new.title = title
         new.size = size
@@ -1167,6 +1169,7 @@ class MonostaticRCSPlotter(object):
         curve = [ranges.tolist(), y.tolist(), legend]
 
         new = ReportPlotter()
+        new.show_logo = False
         new.show_legend = show_legend
         new.title = title
         new.size = size
@@ -1235,6 +1238,7 @@ class MonostaticRCSPlotter(object):
         plot_data = [values.T, y, x]
 
         new = ReportPlotter()
+        new.show_logo = False
         new.size = size
         new.show_legend = False
         new.title = title
@@ -1296,6 +1300,7 @@ class MonostaticRCSPlotter(object):
         plot_data = [values, x, y]
 
         new = ReportPlotter()
+        new.show_logo = False
         new.size = size
         new.show_legend = False
         new.title = title
@@ -1393,6 +1398,7 @@ class MonostaticRCSPlotter(object):
         plot_data = [values, x_, y_]
 
         new = ReportPlotter()
+        new.show_logo = False
         new.size = size
         new.show_legend = False
         new.title = title
