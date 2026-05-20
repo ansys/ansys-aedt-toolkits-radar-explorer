@@ -1095,7 +1095,7 @@ class MonostaticRCSPlotter(object):
         rcs_min = np.min(rcs)
 
         rcs_renorm = rcs + np.abs(rcs_min) if rcs_min else rcs
-        rcs_renorm = rcs_renorm.to_numpy()
+        rcs_renorm = rcs_renorm.to_numpy().copy()
         # Negative values are not valid, this is cleaning numerical issues
         rcs_renorm[rcs_renorm < 0] = 0.0
 
@@ -1483,7 +1483,7 @@ class MonostaticRCSPlotter(object):
         rcs_min = np.min(rcs)
 
         rcs_renorm = rcs + np.abs(rcs_min) if rcs_min else rcs
-        rcs_renorm = rcs_renorm.to_numpy()
+        rcs_renorm = rcs_renorm.to_numpy().copy()
         # Negative values are not valid, this is cleaning numerical issues
         rcs_renorm[rcs_renorm < 0] = 0.0
 
