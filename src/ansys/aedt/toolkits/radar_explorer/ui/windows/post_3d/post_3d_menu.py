@@ -707,6 +707,7 @@ class Post3DMenu(object):
             self.aspect_range_combobox.addItems(["Horizontal"])
             self.aspect_range_combobox.setEnabled(False)
         else:
+            
             self.aspect_range_combobox.addItems(["N/A"])
             self.aspect_range_combobox.setEnabled(False)
         self.aspect_range_combobox.blockSignals(False)
