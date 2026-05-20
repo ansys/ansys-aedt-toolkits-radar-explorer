@@ -104,7 +104,6 @@ class Common3DPlotter(object):
         for actor in actors:
             self.plotter.remove_actor(actor)
         self.window_actors = []
-        self.pv_backend.enable_widgets(dark_mode=self.dark_mode)
 
     def reparent_to_placeholder(self, window_name):
         if window_name in self.window_placeholders:
