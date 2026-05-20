@@ -88,9 +88,7 @@ def _cleanup_pyvista():  # pragma: no cover
                                     obj.mesh = None
                             if hasattr(actor, "mesh"):
                                 actor.mesh = None
-        properties.radar_explorer.all_scene_actors = {
-            "model": {}, "annotations": {}, "results": {}, "plotter": {}
-        }
+        properties.radar_explorer.all_scene_actors = {"model": {}, "annotations": {}, "results": {}, "plotter": {}}
         gc.collect()
     except Exception:
         pass
