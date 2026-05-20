@@ -90,7 +90,7 @@ def _cleanup_pyvista():  # pragma: no cover
                                 actor.mesh = None
         properties.radar_explorer.all_scene_actors = {"model": {}, "annotations": {}, "results": {}, "plotter": {}}
         gc.collect()
-    except Exception:
+    except Exception:  # nosec
         pass
 
 
@@ -393,7 +393,7 @@ class ApplicationWindow(QMainWindow, Frontend):
             if plotter and plotter.plotter:
                 plotter.clear_window_actors()
                 plotter.plotter.close()
-        except Exception:
+        except Exception:  # nosec
             pass
         _cleanup_pyvista()
         event.accept()

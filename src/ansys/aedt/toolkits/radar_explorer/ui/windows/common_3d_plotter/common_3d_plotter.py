@@ -220,7 +220,7 @@ class Common3DPlotter(object):
                     plotter_scene.button_widgets.remove(ruler_widget._button)
                     ruler_widget._button.GetRepresentation().VisibilityOff()
                     ruler_widget._button.Off()
-                except Exception:
+                except Exception:  # nosec
                     pass
 
                 def _ruler_callback(state, _ruler=ruler_widget):
