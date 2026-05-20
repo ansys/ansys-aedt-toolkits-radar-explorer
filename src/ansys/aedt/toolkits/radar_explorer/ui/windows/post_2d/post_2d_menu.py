@@ -563,7 +563,8 @@ class Post2DMenu(object):
             self.aspect_range_combobox.addItems(["Horizontal"])
             self.aspect_range_combobox.setEnabled(False)
         else:
-            raise ValueError("No theta or phi available for 2D ISAR plot")
+            self.aspect_range_combobox.addItems(["N/A"])
+            self.aspect_range_combobox.setEnabled(False)
         self.aspect_range_combobox.blockSignals(False)
 
         # initialize primary sweep used in RCS

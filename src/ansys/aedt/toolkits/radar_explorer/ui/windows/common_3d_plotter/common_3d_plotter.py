@@ -71,6 +71,7 @@ class Common3DPlotter(object):
             self.plotter = self.pv_plotter.backend.pv_interface.scene
             self.pyvista_3d_layout.addWidget(self.plotter)
             self.pv_backend.enable_widgets(dark_mode=self.dark_mode)
+            self._patch_ruler_units()
 
             # Disable 'q' key for exiting modeler
             self.plotter.iren.clear_events_for_key("q")
@@ -202,6 +203,51 @@ class Common3DPlotter(object):
 
         self.plotter.suppress_rendering = False
         self.plotter.render()
+
+    def _patch_ruler_units(self):
+        """Patch the Ruler widget callback to use the current model units instead of hardcoded meters."""
+        from ansys.tools.visualization_interface.backends.pyvista.widgets.ruler import Ruler
+
+        plotter_scene = self.plotter
+        for widget in getattr(self.pv_backend, "_widgets", []):
+            if isinstance(widget, Ruler):
+                ruler_widget = widget
+                # Re-register the checkbox button widget callback with the patched method
+                # The VTK button already holds a reference to ruler_widget.callback,
+                # so we need to recreate the button with the new callback.
+                # Remove the old button first
+                try:
+                    plotter_scene.button_widgets.remove(ruler_widget._button)
+                    ruler_widget._button.GetRepresentation().VisibilityOff()
+                    ruler_widget._button.Off()
+                except Exception:
+                    pass
+
+                def _ruler_callback(state, _ruler=ruler_widget):
+                    units = properties.radar_explorer.model_units
+                    if not state and _ruler._actor:
+                        plotter_scene.remove_actor(_ruler._actor)
+                        _ruler._actor = None
+                    else:
+                        _ruler._actor = plotter_scene.show_bounds(
+                            grid="front",
+                            location="outer",
+                            all_edges=False,
+                            show_xaxis=True,
+                            show_yaxis=True,
+                            show_zaxis=True,
+                            color="white" if _ruler._dark_mode else "black",
+                            xtitle=f"X Axis [{units}]",
+                            ytitle=f"Y Axis [{units}]",
+                            ztitle=f"Z Axis [{units}]",
+                        )
+
+                # Recreate the vtk button with the new callback at the same position
+                ruler_widget._button = plotter_scene.add_checkbox_button_widget(
+                    _ruler_callback, position=(3, 88), size=30, border_size=3
+                )
+                ruler_widget.update()
+                break
 
     @staticmethod
     def rotation_matrix_from_euler(rotation_order, angles, in_degrees):

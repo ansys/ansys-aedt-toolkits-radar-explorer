@@ -6,10 +6,10 @@ debug= true
 app_name= "Radar Explorer"
 main_title= "Ansys Radar Explorer"
 welcome_message= "Welcome to the Radar Explorer"
-version= "v0.1.0"
+version= "v0.2.0"
 copyright= "By: ansys"
 year= 2026
-theme= "ansys_dark.json"
+theme= "synopsys_dark.json"
 high_resolution= false
 left_column_size= {minimum= 0, maximum= 450}
 right_column_size= {minimum= 0, maximum= 400}

@@ -16,6 +16,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import atexit
+import gc
 import os
 import sys
 
@@ -69,6 +71,32 @@ os.environ["QT_FONT_DPI"] = "96"
 set_pyside_resolution(properties, use_tkinter=False)
 
 properties.version = __version__
+
+
+def _cleanup_pyvista():  # pragma: no cover
+    """Clear all PyVista mesh references before Python GC runs, to avoid VTK destructor errors."""
+    try:
+        actors = properties.radar_explorer.all_scene_actors
+        for category in list(actors.values()):
+            if isinstance(category, dict):
+                for scene in list(category.values()):
+                    if isinstance(scene, dict):
+                        for actor in list(scene.values()):
+                            if hasattr(actor, "custom_object"):
+                                obj = actor.custom_object
+                                if hasattr(obj, "mesh"):
+                                    obj.mesh = None
+                            if hasattr(actor, "mesh"):
+                                actor.mesh = None
+        properties.radar_explorer.all_scene_actors = {
+            "model": {}, "annotations": {}, "results": {}, "plotter": {}
+        }
+        gc.collect()
+    except Exception:
+        pass
+
+
+atexit.register(_cleanup_pyvista)
 
 
 class ApplicationWindow(QMainWindow, Frontend):
@@ -360,8 +388,16 @@ class ApplicationWindow(QMainWindow, Frontend):
             if not is_left_visible:
                 self.ui.toggle_left_column()
 
-    def close_event(self, event):  # pragma: no cover
-        self.home_menu.plotter.pv_backend.close()
+    def closeEvent(self, event):  # pragma: no cover
+        """Clean up PyVista plotter before closing."""
+        try:
+            plotter = self.home_menu.plotter
+            if plotter and plotter.plotter:
+                plotter.clear_window_actors()
+                plotter.plotter.close()
+        except Exception:
+            pass
+        _cleanup_pyvista()
         event.accept()
 
 
