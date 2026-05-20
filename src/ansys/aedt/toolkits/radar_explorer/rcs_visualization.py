@@ -1359,9 +1359,15 @@ class MonostaticRCSPlotter(object):
         down_range = data_isar_3d["Down-range"].unique()
         cross_range_az = data_isar_3d["Cross-range-az"].unique()
         cross_range_el = data_isar_3d["Cross-range-el"].unique()
-        down_range = unit_converter(down_range, unit_system="Length", input_units="meter", output_units=self.model_units)
-        cross_range_az = unit_converter(cross_range_az, unit_system="Length", input_units="meter", output_units=self.model_units)
-        cross_range_el = unit_converter(cross_range_el, unit_system="Length", input_units="meter", output_units=self.model_units)
+        down_range = unit_converter(
+            down_range, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
+        cross_range_az = unit_converter(
+            cross_range_az, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
+        cross_range_el = unit_converter(
+            cross_range_el, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
 
         # The above pivot may need to be adjusted depending on the data layout
         # For now, let's try to reshape the data
@@ -2309,8 +2315,12 @@ class MonostaticRCSPlotter(object):
 
         down_range = data_isar_2d["Down-range"].unique()
         cross_range = data_isar_2d["Cross-range"].unique()
-        down_range = unit_converter(down_range, unit_system="Length", input_units="meter", output_units=self.model_units)
-        cross_range = unit_converter(cross_range, unit_system="Length", input_units="meter", output_units=self.model_units)
+        down_range = unit_converter(
+            down_range, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
+        cross_range = unit_converter(
+            cross_range, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
         values_2d = data_isar_2d["Data"].to_numpy().reshape((len(down_range), len(cross_range)))
 
         if plot_type.casefold() in ["relief", "plane"]:
@@ -2445,9 +2455,15 @@ class MonostaticRCSPlotter(object):
         down_range = data_isar_3d["Down-range"].unique()
         cross_range_az = data_isar_3d["Cross-range-az"].unique()
         cross_range_el = data_isar_3d["Cross-range-el"].unique()
-        down_range = unit_converter(down_range, unit_system="Length", input_units="meter", output_units=self.model_units)
-        cross_range_az = unit_converter(cross_range_az, unit_system="Length", input_units="meter", output_units=self.model_units)
-        cross_range_el = unit_converter(cross_range_el, unit_system="Length", input_units="meter", output_units=self.model_units)
+        down_range = unit_converter(
+            down_range, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
+        cross_range_az = unit_converter(
+            cross_range_az, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
+        cross_range_el = unit_converter(
+            cross_range_el, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
 
         dx = down_range[1] - down_range[0] if len(down_range) > 1 else 0
         dy = cross_range_az[1] - cross_range_az[0] if len(cross_range_az) > 1 else 0
