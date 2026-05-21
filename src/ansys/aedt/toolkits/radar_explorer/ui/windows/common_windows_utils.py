@@ -120,9 +120,14 @@ class CommonWindowUtilsRCS(CommonWindowUtils):
             if rcs_object is None:
                 raise Exception("No results found during prosessing.")
             data = next(iter(rcs_object.values())).rcs_data
-            num_freq = len(data.frequencies)
-            num_theta = len(data.available_incident_wave_theta)
-            num_phi = len(data.available_incident_wave_phi)
+            frequencies = data.frequencies
+            thetas = data.available_incident_wave_theta
+            phis = data.available_incident_wave_phi
+            if frequencies is None or thetas is None or phis is None:
+                return
+            num_freq = len(frequencies)
+            num_theta = len(thetas)
+            num_phi = len(phis)
             if num_freq == 1:
                 # Single frequency, no post processing
                 combo_3d = frontend.main_window.post_3d_menu.category_combobox

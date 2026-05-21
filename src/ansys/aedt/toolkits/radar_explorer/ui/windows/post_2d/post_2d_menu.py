@@ -20,6 +20,7 @@ import tempfile
 
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
+from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 import numpy as np
 from PySide6.QtCore import Qt
@@ -562,7 +563,8 @@ class Post2DMenu(object):
             self.aspect_range_combobox.addItems(["Horizontal"])
             self.aspect_range_combobox.setEnabled(False)
         else:
-            raise ValueError("No theta or phi available for 2D ISAR plot")
+            self.aspect_range_combobox.addItems(["N/A"])
+            self.aspect_range_combobox.setEnabled(False)
         self.aspect_range_combobox.blockSignals(False)
 
         # initialize primary sweep used in RCS
@@ -876,14 +878,21 @@ class Post2DMenu(object):
 
         selected_report = self.result_combobox.currentText()
 
-        # Matplotlib canvas
+        # Matplotlib canvas - apply style BEFORE any figure/axes creation
         if "dark" in self.ui.themes["theme_name"]:
             plt.style.use("dark_background")
+            bg_color = "black"
+            axes_bg_color = "#1a1a1a"
+            text_color = "white"
         else:
             plt.style.use("classic")
+            bg_color = "white"
+            axes_bg_color = "white"
+            text_color = "black"
 
         if selected_report == "New Report":
-            canvas = FigureCanvas()
+            fig = Figure(facecolor=bg_color)
+            canvas = FigureCanvas(fig)
             figure_toolbar = NavigationToolbar(canvas)
             toolbar_background_color = self.ui.themes["app_color"]["bg_three"]
             figure_toolbar.setStyleSheet(f"background-color: {toolbar_background_color};")
@@ -921,6 +930,7 @@ class Post2DMenu(object):
         canvas = existing_widget.layout().itemAt(1).widget()
         toolbar = existing_widget.layout().itemAt(0).widget()
         canvas.figure.clf()
+        canvas.figure.set_facecolor(bg_color)
 
         if data:
             data.rcs_data.interpolation = interpolation
@@ -1032,10 +1042,6 @@ class Post2DMenu(object):
 
                 properties.radar_explorer.all_scene_actors["results"][selected_report][name] = report_plotter
 
-        if "dark" in self.ui.themes["theme_name"]:
-            plt.style.use("dark_background")
-        else:
-            plt.style.use("classic")
 
         # Get traces
         k = 0
@@ -1043,6 +1049,7 @@ class Post2DMenu(object):
             # Plot traces in Canvas
             if category in ["RCS", "Range Profile"]:
                 new_plotter = ReportPlotter()
+                new_plotter.show_logo = False
                 for report_name, report in properties.radar_explorer.all_scene_actors["results"][
                     selected_report
                 ].items():
@@ -1081,6 +1088,24 @@ class Post2DMenu(object):
 
         properties.radar_explorer.reports[tab_selected][selected_report].layout().update()
         properties.radar_explorer.reports[tab_selected][selected_report].adjustSize()
+        # Force background colors on all axes (ReportPlotter creates axes after style is set,
+        # but axes facecolor may still default to white when figure is passed externally)
+        canvas.figure.set_facecolor(bg_color)
+        for ax in canvas.figure.get_axes():
+            ax.set_facecolor(axes_bg_color)
+            ax.tick_params(colors=text_color)
+            ax.xaxis.label.set_color(text_color)
+            ax.yaxis.label.set_color(text_color)
+            ax.title.set_color(text_color)
+            for spine in ax.spines.values():
+                spine.set_edgecolor(text_color)
+            # Fix legend colors
+            if ax.get_legend() is not None:
+                legend = ax.get_legend()
+                legend.get_frame().set_facecolor(axes_bg_color)
+                legend.get_frame().set_edgecolor(text_color)
+                for text in legend.get_texts():
+                    text.set_color(text_color)
         toolbar.update()
         canvas.flush_events()
         canvas.draw()
