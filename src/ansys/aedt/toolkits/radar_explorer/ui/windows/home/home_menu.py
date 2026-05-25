@@ -286,9 +286,9 @@ class HomeMenu(object):
 
         # Add logo to main page depending on the theme, we can change the logo to white or black version
         if not properties.logo:
-            main_window_logo = self.ui.images_load.image_path("ansys-black.svg")
+            main_window_logo = self.ui.images_load.image_path("ansys-primary-logo-black.svg")
             if self.ui.themes["theme_name"] == "ansys_dark":
-                main_window_logo = self.ui.images_load.image_path("ansys-white.svg")
+                main_window_logo = self.ui.images_load.image_path("ansys-primary-logo-white.svg")
             elif "synopsys" in self.ui.themes["theme_name"]:
                 main_window_logo = self.ui.images_load.image_path("synopsys-logo.svg")
         else:
