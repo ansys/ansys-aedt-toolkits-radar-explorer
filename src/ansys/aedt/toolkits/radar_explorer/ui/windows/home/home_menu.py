@@ -660,6 +660,14 @@ class HomeMenu(object):
             self.ui.update_progress(100)
             return False
 
+        # Sync model units from the loaded RCS object into global properties
+        if rcs_object.model_units:
+            properties.radar_explorer.model_units = rcs_object.model_units
+            if self.model_unit_menu is not None:
+                self.model_unit_menu.blockSignals(True)
+                self.model_unit_menu.setCurrentText(rcs_object.model_units)
+                self.model_unit_menu.blockSignals(False)
+
         # Plot scene
         self.add_model_scene(rcs_object)
 

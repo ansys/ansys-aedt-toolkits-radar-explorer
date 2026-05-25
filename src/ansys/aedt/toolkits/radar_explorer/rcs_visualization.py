@@ -26,7 +26,6 @@ import pyvista as pv
 from scipy.interpolate import RegularGridInterpolator
 
 from ansys.aedt.core.aedt_logger import pyaedt_logger as logger
-from ansys.aedt.core.generic.constants import AEDT_UNITS
 from ansys.aedt.core.generic.constants import SpeedOfLight
 from ansys.aedt.core.generic.constants import unit_converter
 from ansys.aedt.core.generic.general_methods import conversion_function
@@ -1043,6 +1042,7 @@ class MonostaticRCSPlotter(object):
 
         if curves is not None:
             new = ReportPlotter()
+            new.show_logo = False
             new.show_legend = show_legend
             new.title = title
             new.size = size
@@ -1095,7 +1095,7 @@ class MonostaticRCSPlotter(object):
         rcs_min = np.min(rcs)
 
         rcs_renorm = rcs + np.abs(rcs_min) if rcs_min else rcs
-        rcs_renorm = rcs_renorm.to_numpy()
+        rcs_renorm = rcs_renorm.to_numpy().copy()
         # Negative values are not valid, this is cleaning numerical issues
         rcs_renorm[rcs_renorm < 0] = 0.0
 
@@ -1115,6 +1115,7 @@ class MonostaticRCSPlotter(object):
         z = r * np.cos(theta_grid)
 
         new = ReportPlotter()
+        new.show_logo = False
         new.show_legend = True
         new.title = title
         new.size = size
@@ -1167,6 +1168,7 @@ class MonostaticRCSPlotter(object):
         curve = [ranges.tolist(), y.tolist(), legend]
 
         new = ReportPlotter()
+        new.show_logo = False
         new.show_legend = show_legend
         new.title = title
         new.size = size
@@ -1235,6 +1237,7 @@ class MonostaticRCSPlotter(object):
         plot_data = [values.T, y, x]
 
         new = ReportPlotter()
+        new.show_logo = False
         new.size = size
         new.show_legend = False
         new.title = title
@@ -1296,6 +1299,7 @@ class MonostaticRCSPlotter(object):
         plot_data = [values, x, y]
 
         new = ReportPlotter()
+        new.show_logo = False
         new.size = size
         new.show_legend = False
         new.title = title
@@ -1355,6 +1359,15 @@ class MonostaticRCSPlotter(object):
         down_range = data_isar_3d["Down-range"].unique()
         cross_range_az = data_isar_3d["Cross-range-az"].unique()
         cross_range_el = data_isar_3d["Cross-range-el"].unique()
+        down_range = unit_converter(
+            down_range, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
+        cross_range_az = unit_converter(
+            cross_range_az, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
+        cross_range_el = unit_converter(
+            cross_range_el, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
 
         # The above pivot may need to be adjusted depending on the data layout
         # For now, let's try to reshape the data
@@ -1370,22 +1383,22 @@ class MonostaticRCSPlotter(object):
             values = values_3d[:, :, idx_fixed_range]
             y = down_range
             x = cross_range_az
-            xlabel = "Down-Range (m)"
-            ylabel = "Cross Range (az) (m)"
+            xlabel = f"Down-Range ({self.model_units})"
+            ylabel = f"Cross Range (az) ({self.model_units})"
         elif plane_cut.casefold() == "xz":
             idx_fixed_range = (np.abs(cross_range_az - plane_offset)).argmin()
             values = values_3d[:, idx_fixed_range, :]
             y = down_range
             x = cross_range_el
-            xlabel = "Down-Range (m)"
-            ylabel = "Cross Range (el) (m)"
+            xlabel = f"Down-Range ({self.model_units})"
+            ylabel = f"Cross Range (el) ({self.model_units})"
         elif plane_cut.casefold() == "yz":
             idx_fixed_range = (np.abs(down_range - plane_offset)).argmin()
             values = values_3d[idx_fixed_range, :, :]
             y = cross_range_az
             x = cross_range_el
-            xlabel = "Cross Range (az) (m)"
-            ylabel = "Cross Range (el) (m)"
+            xlabel = f"Cross Range (az) ({self.model_units})"
+            ylabel = f"Cross Range (el) ({self.model_units})"
         else:
             raise ValueError("Invalid plane cut. Choose 'xy', 'xz', or 'yz'.")
 
@@ -1393,6 +1406,7 @@ class MonostaticRCSPlotter(object):
         plot_data = [values, x_, y_]
 
         new = ReportPlotter()
+        new.show_logo = False
         new.size = size
         new.show_legend = False
         new.title = title
@@ -1483,7 +1497,7 @@ class MonostaticRCSPlotter(object):
         rcs_min = np.min(rcs)
 
         rcs_renorm = rcs + np.abs(rcs_min) if rcs_min else rcs
-        rcs_renorm = rcs_renorm.to_numpy()
+        rcs_renorm = rcs_renorm.to_numpy().copy()
         # Negative values are not valid, this is cleaning numerical issues
         rcs_renorm[rcs_renorm < 0] = 0.0
 
@@ -2142,6 +2156,7 @@ class MonostaticRCSPlotter(object):
         )
 
         ranges = data_range_profile["Range"].to_numpy()
+        ranges = unit_converter(ranges, unit_system="Length", input_units="meter", output_units=self.model_units)
 
         rotation = {}
         rotation["azimuth"] = -self.rcs_data.incident_wave_phi
@@ -2300,6 +2315,12 @@ class MonostaticRCSPlotter(object):
 
         down_range = data_isar_2d["Down-range"].unique()
         cross_range = data_isar_2d["Cross-range"].unique()
+        down_range = unit_converter(
+            down_range, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
+        cross_range = unit_converter(
+            cross_range, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
         values_2d = data_isar_2d["Data"].to_numpy().reshape((len(down_range), len(cross_range)))
 
         if plot_type.casefold() in ["relief", "plane"]:
@@ -2434,6 +2455,15 @@ class MonostaticRCSPlotter(object):
         down_range = data_isar_3d["Down-range"].unique()
         cross_range_az = data_isar_3d["Cross-range-az"].unique()
         cross_range_el = data_isar_3d["Cross-range-el"].unique()
+        down_range = unit_converter(
+            down_range, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
+        cross_range_az = unit_converter(
+            cross_range_az, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
+        cross_range_el = unit_converter(
+            cross_range_el, unit_system="Length", input_units="meter", output_units=self.model_units
+        )
 
         dx = down_range[1] - down_range[0] if len(down_range) > 1 else 0
         dy = cross_range_az[1] - cross_range_az[0] if len(cross_range_az) > 1 else 0
@@ -3165,13 +3195,8 @@ class MonostaticRCSPlotter(object):
             name = relative_path.stem
             relative_path = Path("geometry") / relative_path
             cad_path = Path(self.rcs_data.output_dir) / relative_path
-            try:
-                conv = AEDT_UNITS["Length"][units]
-            except Exception:  # pragma: no cover
-                conv = 1
             if cad_path.exists():
                 mesh = pv.read(str(cad_path))
-                mesh.scale(conv)
             else:  # pragma: no cover
                 self.__logger.warning(f"{cad_path} does not exist.")
                 return False
