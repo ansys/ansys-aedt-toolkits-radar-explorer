@@ -9,6 +9,60 @@ This document contains the release notes for the project.
 
 .. towncrier release notes start
 
+`0.3.0 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/releases/tag/v0.3.0>`_ - May 25, 2026
+=========================================================================================================
+
+.. tab-set::
+
+
+  .. tab-item:: Fixed
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - UX issues
+          - `#61 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/61>`_
+
+        * - Initial logo
+          - `#64 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/64>`_
+
+
+  .. tab-item:: Dependencies
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Bump softprops/action-gh-release from 2.6.1 to 2.6.2
+          - `#54 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/54>`_
+
+        * - Bump pypa/gh-action-pypi-publish from 1.13.0 to 1.14.0
+          - `#55 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/55>`_
+
+        * - Bump actions/upload-artifact from 7.0.0 to 7.0.1
+          - `#56 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/56>`_
+
+        * - Bump softprops/action-gh-release from 2.6.2 to 3.0.0
+          - `#57 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/57>`_
+
+        * - Bump actions/labeler from 6.0.1 to 6.1.0
+          - `#59 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/59>`_
+
+        * - Bump ansys/actions from 10.2.12 to 10.3.2
+          - `#63 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/63>`_
+
+
+  .. tab-item:: Maintenance
+
+    .. list-table::
+        :header-rows: 0
+        :widths: auto
+
+        * - Update CHANGELOG for v0.2.0
+          - `#53 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/pull/53>`_
+
+
 `0.2.0 <https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/releases/tag/v0.2.0>`_ - April 17, 2026
 ===========================================================================================================
 
