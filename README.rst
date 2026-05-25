@@ -11,7 +11,7 @@ Radar Explorer Toolkit
    :target: https://www.python.org/downloads/
 
 .. |GH-CI| image:: https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/actions/workflows/ci_cd_pr.yml/badge.svg
-   :target: https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/actions/workflows/ci_cd.yml
+   :target: https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/actions/workflows/ci_cd_pr.yml
 
 .. |Apache| image:: https://img.shields.io/badge/License-Apache%202.0-blue.svg
    :target: https://opensource.org/licenses/Apache-2.0
