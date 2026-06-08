@@ -290,17 +290,14 @@ jobs:
         with:
           python-version: ${{ env.TESTS_PYTHON_VERSIONS }}
 
-      - name: Create Python venv
-        run: |
-          python -m venv .venv
-          .\.venv\Scripts\Activate.ps1
+      - name: Set up uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: false
+          prune-cache: true
 
       - name: Install packages for testing
-        run: |
-          .\.venv\Scripts\Activate.ps1
-          python -m pip install --upgrade pip
-          pip install --upgrade build wheel
-          pip install .[tests]
+        run: uv sync --frozen --group tests --no-dev
 
       - name: Test API
         timeout-minutes: 30
@@ -375,44 +372,43 @@ jobs:
         with:
           python-version: ${{ env.TESTS_PYTHON_VERSIONS }}
 
-      - name: Create Python venv
-        run: |
-          python -m venv .venv_linux
+      - name: Set up uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: false
+          prune-cache: true
 
       - name: Install packages for testing
-        run: |
-          source .venv_linux/bin/activate
-          pip install .[tests]
+        run: uv sync --frozen --group tests --no-dev
 
       - name: Test API
         timeout-minutes: 15
         run: |
-          source .venv_linux/bin/activate
+          source .venv/bin/activate
           pytest -v -m radar_toolkit_api
-
 
       - name: Test Domain Transform API
         timeout-minutes: 15
         run: |
-          source .venv_linux/bin/activate
+          source .venv/bin/activate
           pytest -v -m domain_transforms
 
       - name: Test REST API
         timeout-minutes: 5
         run: |
-          source .venv_linux/bin/activate
+          source .venv/bin/activate
           pytest -v -m rest_api_toolkit
 
       - name: Test Visualization
         timeout-minutes: 15
         run: |
-          source .venv_linux/bin/activate
+          source .venv/bin/activate
           pytest -v -m radar_visualization
 
       - name: Test Run Toolkit utils
         timeout-minutes: 15
         run: |
-          source .venv_linux/bin/activate
+          source .venv/bin/activate
           pytest -v -m run_utils
 
   build-library:
