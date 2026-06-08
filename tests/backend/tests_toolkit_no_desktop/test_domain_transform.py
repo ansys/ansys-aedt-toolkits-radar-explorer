@@ -16,11 +16,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from ansys.aedt.core.generic.constants import SpeedOfLight
+from ansys.aedt.core.generic.numbers_utils import Quantity
 import numpy as np
 import pytest
 
-from ansys.aedt.core.generic.constants import SpeedOfLight
-from ansys.aedt.core.generic.numbers_utils import Quantity
 from ansys.aedt.toolkits.radar_explorer.backend.rcs_utils.domain_transforms import DomainTransforms
 from ansys.aedt.toolkits.radar_explorer.backend.rcs_utils.utils import split_num_units
 from ansys.aedt.toolkits.radar_explorer.backend.rcs_utils.utils import unit_converter_rcs

@@ -20,11 +20,6 @@ from enum import Enum
 import json
 from pathlib import Path
 
-import numpy as np
-import pandas as pd
-import pyvista as pv
-from scipy.interpolate import RegularGridInterpolator
-
 from ansys.aedt.core.aedt_logger import pyaedt_logger as logger
 from ansys.aedt.core.generic.constants import SpeedOfLight
 from ansys.aedt.core.generic.constants import unit_converter
@@ -35,6 +30,10 @@ from ansys.aedt.core.visualization.plot.matplotlib import ReportPlotter
 from ansys.tools.visualization_interface import MeshObjectPlot
 from ansys.tools.visualization_interface import Plotter
 from ansys.tools.visualization_interface.backends.pyvista import PyVistaBackend
+import numpy as np
+import pandas as pd
+import pyvista as pv
+from scipy.interpolate import RegularGridInterpolator
 
 
 class MonostaticRCSData(object):
