@@ -62,7 +62,6 @@ tests = [
     "pytest-qt",
 ]
 
-
 [tool.flit.module]
 name = "ansys.aedt.toolkits.radar_explorer"
 
