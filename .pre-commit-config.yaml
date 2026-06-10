@@ -56,5 +56,6 @@ repos:
     - id: add-license-headers
       files: '(src|tests|installer)/.*\.(py)'
       args:
-      - --custom_template=mit_license.jinja2
-      - --start_year=2023
+      - --custom_license=Apache-2.0
+      - --custom_template=apache_2.0_license.jinja2
+      - --start_year=2024
