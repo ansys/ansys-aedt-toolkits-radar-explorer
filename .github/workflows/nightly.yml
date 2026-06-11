@@ -6,11 +6,12 @@ on:
 
 env:
   ANSYSLMD_LICENSE_FILE: ${{ format('1055@{0}', secrets.LICENSE_SERVER) }}
-  MAIN_PYTHON_VERSION: '3.12'
   DOCUMENTATION_CNAME: 'aedt.radar.explorer.toolkit.docs.pyansys.com'
   LIBRARY_NAME: 'ansys-aedt-toolkits-radar_explorer'
   LIBRARY_NAMESPACE: 'ansys.aedt.toolkits.radar_explorer'
+  MAIN_PYTHON_VERSION: '3.14'
   ON_CI: True
+  TESTS_PYTHON_VERSIONS: '3.10'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -47,10 +48,11 @@ jobs:
 
       - uses: ansys/actions/doc-build@d946b24b9a765f4169bcc94afdb27bd1a0533741 # v10.3.2
         with:
-          python-version: ${{ env.MAIN_PYTHON_VERSION }}
-          use-python-cache: false
           add-pdf-html-docs-as-assets: true
           check-links: false
+          group-dependencies-name: 'doc'
+          python-version: ${{ env.MAIN_PYTHON_VERSION }}
+          use-python-cache: false
 
   build-application-windows:
     name: "Build Windows Application"
@@ -225,19 +227,16 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
-          python-version: ${{ env.MAIN_PYTHON_VERSION }}
+          python-version: ${{ env.TESTS_PYTHON_VERSIONS }}
 
-      - name: Create Python venv
-        run: |
-          python -m venv .venv
-          .\.venv\Scripts\Activate.ps1
+      - name: Set up uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: false
+          prune-cache: true
 
       - name: Install packages for testing
-        run: |
-          .\.venv\Scripts\Activate.ps1
-          python -m pip install --upgrade pip
-          pip install --upgrade build wheel
-          pip install .[tests]
+        run: uv sync --frozen --group tests --no-dev
 
       - name: Test API
         timeout-minutes: 30
@@ -289,7 +288,7 @@ jobs:
 
       - uses: codecov/codecov-action@57e3a136b779b570ffcdbf80b3bdc90e7fab3de2 # v6.0.0
         with:
-          name: codecov-tests-linux
+          name: codecov-tests-windows
           files: .cov/total.xml
           flags: windows_tests
 
@@ -310,46 +309,46 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
-          python-version: ${{ env.MAIN_PYTHON_VERSION }}
+          python-version: ${{ env.TESTS_PYTHON_VERSIONS }}
 
-      - name: Create Python venv
-        run: |
-          python -m venv .venv_linux
+      - name: Set up uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: false
+          prune-cache: true
 
       - name: Install packages for testing
-        run: |
-          source .venv_linux/bin/activate
-          pip install .[tests]
+        run: uv sync --frozen --group tests --no-dev
 
       - name: Test API
         timeout-minutes: 15
         run: |
-          source .venv_linux/bin/activate
+          source .venv/bin/activate
           pytest -v -m radar_toolkit_api
 
 
       - name: Test Domain Transform API
         timeout-minutes: 15
         run: |
-          source .venv_linux/bin/activate
+          source .venv/bin/activate
           pytest -v -m domain_transforms
 
       - name: Test REST API
         timeout-minutes: 5
         run: |
-          source .venv_linux/bin/activate
+          source .venv/bin/activate
           pytest -v -m rest_api_toolkit
 
       - name: Test Visualization
         timeout-minutes: 15
         run: |
-          source .venv_linux/bin/activate
+          source .venv/bin/activate
           pytest -v -m radar_visualization
 
       - name: Test Run Toolkit utils
         timeout-minutes: 15
         run: |
-          source .venv_linux/bin/activate
+          source .venv/bin/activate
           pytest -v -m run_utils
 
 

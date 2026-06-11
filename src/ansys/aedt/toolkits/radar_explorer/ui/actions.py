@@ -22,6 +22,7 @@ import tempfile
 
 from ansys.aedt.core.generic.file_utils import read_json
 from ansys.aedt.core.generic.numbers_utils import Quantity
+
 from ansys.aedt.toolkits.radar_explorer.rcs_visualization import MonostaticRCSData
 from ansys.aedt.toolkits.radar_explorer.rcs_visualization import MonostaticRCSPlotter
 

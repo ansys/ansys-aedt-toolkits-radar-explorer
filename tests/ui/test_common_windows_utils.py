@@ -18,9 +18,9 @@
 
 from unittest.mock import patch
 
+from ansys.aedt.toolkits.common.ui.utils.widgets.py_logger.py_logger import PyLogger
 from PySide6.QtCore import Qt
 
-from ansys.aedt.toolkits.common.ui.utils.widgets.py_logger.py_logger import PyLogger
 from ansys.aedt.toolkits.radar_explorer.ui.run_frontend import ApplicationWindow
 from ansys.aedt.toolkits.radar_explorer.ui.windows.home.home_menu import HomeMenu
 from ansys.aedt.toolkits.radar_explorer.ui.windows.home.home_menu import properties

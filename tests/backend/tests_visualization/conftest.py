@@ -44,9 +44,9 @@ import shutil
 import string
 import tempfile
 
+from ansys.aedt.core.internal.filesystem import Scratch
 import pytest
 
-from ansys.aedt.core.internal.filesystem import Scratch
 from tests.backend.conftest import DEFAULT_CONFIG
 from tests.backend.conftest import read_local_config
 from tests.backend.conftest import setup_aedt_settings

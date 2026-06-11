@@ -27,11 +27,11 @@ if sys.version_info >= (3, 11):
 else:  # pragma: no cover
     import tomli as tomllib
 
+from ansys.aedt.toolkits.common.ui.models import UIProperties
+from ansys.aedt.toolkits.common.ui.models import general_settings
 from pydantic import BaseModel
 from pydantic import Field
 
-from ansys.aedt.toolkits.common.ui.models import UIProperties
-from ansys.aedt.toolkits.common.ui.models import general_settings
 import ansys.aedt.toolkits.radar_explorer
 
 DEFAULT_ANGLE_VALUE = "0.0deg"

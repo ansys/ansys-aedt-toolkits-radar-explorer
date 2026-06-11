@@ -40,9 +40,9 @@ You can enable the API log file in the backend_properties.json.
 
 from pathlib import Path
 
+from ansys.aedt.core import Desktop
 import pytest
 
-from ansys.aedt.core import Desktop
 from ansys.aedt.toolkits.radar_explorer.backend.api import ToolkitBackend
 from tests.backend.conftest import DEFAULT_CONFIG
 from tests.backend.conftest import read_local_config
