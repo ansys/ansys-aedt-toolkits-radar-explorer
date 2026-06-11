@@ -30,9 +30,6 @@ from ansys.aedt.toolkits.radar_explorer.ui.models import properties
 # isort: on
 
 # PySide6 Widgets
-from PySide6.QtWidgets import QApplication
-from PySide6.QtWidgets import QMainWindow
-
 from ansys.aedt.toolkits.common.ui.common_windows.settings_column import SettingsMenu
 
 # Import general common frontend modules
@@ -41,6 +38,8 @@ from ansys.aedt.toolkits.common.ui.logger_handler import logger
 # Common windows
 from ansys.aedt.toolkits.common.ui.main_window.main_window_layout import MainWindowLayout
 from ansys.aedt.toolkits.common.ui.utils.resolution import set_pyside_resolution
+from PySide6.QtWidgets import QApplication
+from PySide6.QtWidgets import QMainWindow
 
 # Toolkit frontend API
 from ansys.aedt.toolkits.radar_explorer.ui.actions import Frontend

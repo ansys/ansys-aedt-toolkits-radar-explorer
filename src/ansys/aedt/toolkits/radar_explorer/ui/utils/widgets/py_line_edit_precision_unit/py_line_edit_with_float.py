@@ -16,9 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from ansys.aedt.toolkits.common.ui.utils.widgets.py_line_edit.py_line_edit import PyLineEdit
 from numpy import round
 
-from ansys.aedt.toolkits.common.ui.utils.widgets.py_line_edit.py_line_edit import PyLineEdit
 from ansys.aedt.toolkits.radar_explorer.backend.rcs_utils.utils import split_num_units
 
 

@@ -45,9 +45,8 @@ from pathlib import Path
 import shutil
 from typing import Optional
 
-import pytest
-
 from ansys.aedt.core.generic.settings import settings
+import pytest
 
 DEFAULT_CONFIG = {"desktop_version": "2026.1", "non_graphical": True, "use_grpc": True, "debug": False}
 LOCAL_CFG_FILE = "local_config.json"

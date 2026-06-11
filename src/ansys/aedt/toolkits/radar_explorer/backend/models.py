@@ -28,11 +28,11 @@ from typing import Dict
 from typing import List
 from typing import Union
 
+from ansys.aedt.toolkits.common.backend.models import CommonProperties
+from ansys.aedt.toolkits.common.backend.models import common_properties
 from pydantic import BaseModel
 from pydantic import Field
 
-from ansys.aedt.toolkits.common.backend.models import CommonProperties
-from ansys.aedt.toolkits.common.backend.models import common_properties
 import ansys.aedt.toolkits.radar_explorer
 
 
