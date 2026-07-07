@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2024 - 2026 ANSYS, Inc. and/or its affiliates.
+# Copyright (C) 2024 - 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 #
 #
@@ -15,14 +15,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-# # Generate an ISAR 2D plot from RCS metadata
-#
-# This example demonstrates how to use the ``ToolkitBackend`` class.
-# It initiates AEDT through PyAEDT, opens an HFSS design, and proceeds to get the antenna data.
-
-
-# ## Perform required imports
 
 from ansys.aedt.toolkits.radar_explorer.rcs_visualization import MonostaticRCSData
 from ansys.aedt.toolkits.radar_explorer.rcs_visualization import MonostaticRCSPlotter
