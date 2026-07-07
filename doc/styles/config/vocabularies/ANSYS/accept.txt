@@ -44,3 +44,4 @@ matplotlib
 Python
 Radar Explorer Toolkit
 Colormap
+Synopsys
