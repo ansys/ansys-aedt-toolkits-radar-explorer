@@ -1,18 +1,12 @@
 # Contributors
 
-## Project lead
+## Project Lead
 
-* [Samuel Lopez](https://github.com/Samuelopez-ansys)
-* [Stefano Cant](https://github.com/scanta2)
+* [Maxime Rey](https://github.com/MaxJPRey)
 
+## Individual Contributors
 
-## Individual contributors
-
-* [Aastha Grover](https://github.com/andsprite05)
-* [Arien Sligar](https://github.com/ariensligar)
 * [Edouard Coussoux](https://github.com/ecoussoux-ansys)
-* [Kathy Pippert](https://github.com/PipKat)
-* [Massimo Capodiferro](https://github.com/maxcapodi78)
-* [Revathy Venugopal](https://github.com/Revathyvenugopal162)
+* [Jorge Martínez](https://github.com/jorgepiloto)
+* [Samuel Lopez](https://github.com/Samuelopez-ansys)
 * [Sébastien Morais](https://github.com/SMoraisAnsys)
-* [Tadahiro Negishi](https://github.com/tadanegishi)
