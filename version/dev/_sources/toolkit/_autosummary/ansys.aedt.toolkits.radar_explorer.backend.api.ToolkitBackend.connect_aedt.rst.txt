@@ -1,0 +1,6 @@
+connect\_aedt
+=============
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. automethod:: ToolkitBackend.connect_aedt

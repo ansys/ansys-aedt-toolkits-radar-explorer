@@ -1,0 +1,6 @@
+add\_rcs
+========
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. automethod:: MonostaticRCSPlotter.add_rcs

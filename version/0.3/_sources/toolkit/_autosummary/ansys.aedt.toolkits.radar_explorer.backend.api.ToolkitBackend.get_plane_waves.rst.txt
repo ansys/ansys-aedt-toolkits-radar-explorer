@@ -1,0 +1,6 @@
+get\_plane\_waves
+=================
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. automethod:: ToolkitBackend.get_plane_waves

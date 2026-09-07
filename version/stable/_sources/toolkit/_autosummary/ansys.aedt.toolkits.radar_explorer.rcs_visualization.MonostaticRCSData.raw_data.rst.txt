@@ -1,0 +1,6 @@
+raw\_data
+=========
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. autoproperty:: MonostaticRCSData.raw_data

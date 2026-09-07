@@ -1,0 +1,6 @@
+plot\_rcs
+=========
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. automethod:: MonostaticRCSPlotter.plot_rcs

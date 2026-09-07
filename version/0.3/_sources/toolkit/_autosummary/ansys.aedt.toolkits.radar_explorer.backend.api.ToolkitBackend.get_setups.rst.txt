@@ -1,0 +1,6 @@
+get\_setups
+===========
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. automethod:: ToolkitBackend.get_setups

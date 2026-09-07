@@ -1,0 +1,6 @@
+all\_scene\_actors
+==================
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. autoproperty:: MonostaticRCSPlotter.all_scene_actors

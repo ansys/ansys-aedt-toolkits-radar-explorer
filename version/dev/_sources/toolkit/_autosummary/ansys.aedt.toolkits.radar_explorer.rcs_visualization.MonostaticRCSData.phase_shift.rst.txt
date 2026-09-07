@@ -1,0 +1,6 @@
+phase\_shift
+============
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. automethod:: MonostaticRCSData.phase_shift

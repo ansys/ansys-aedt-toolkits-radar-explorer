@@ -1,0 +1,6 @@
+data\_conversion\_function
+==========================
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. autoproperty:: MonostaticRCSData.data_conversion_function

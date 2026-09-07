@@ -1,0 +1,6 @@
+range\_profile
+==============
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. autoproperty:: MonostaticRCSData.range_profile

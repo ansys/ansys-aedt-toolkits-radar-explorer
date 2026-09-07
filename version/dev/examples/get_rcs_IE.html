@@ -1,0 +1,1408 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Set AEDT version &#8212; ansys-aedt-toolkits-radar</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/ansys-sphinx-theme.css?v=f424389c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles\ansys-sphinx-theme.css?v=f424389c" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../_static/documentation_options.js?v=414d5694"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/get_rcs_IE';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.20.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://aedt.radar.explorer.toolkit.docs.pyansys.com/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.4.dev0" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  <link rel="canonical" href="https://aedt.radar.explorer.toolkit.docs.pyansys.com/version/stable/examples/get_rcs_IE.html" />
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="ansys-aedt-toolkits-radar - Home"/>
+    <img src="../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="ansys-aedt-toolkits-radar - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="ansys-aedt-toolkits-radar home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../toolkit/ui.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../toolkit/api.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    Examples
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../contributing.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../changelog.html">
+    Release notes
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+  
+</div></div>
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/ansys-aedt-toolkits-radar-explorer" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/issues" title="Support" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i><span class="visually-hidden">Support</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://aedt.radar.explorer.toolkit.docs.pyansys.com/version/dev/_static/assets/download/ansys-aedt-toolkits-radar-explorer.pdf" title="Download documentation in PDF" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-file-pdf fa-fw fa-lg" aria-hidden="true"></i><span class="visually-hidden">Download documentation in PDF</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+<div class="ast-announcement-wrap" role="region" aria-label="Announcement" hidden>
+    <div class="ast-announcement info">
+        <span class="ast-announcement-icon" aria-hidden="true"></span>
+        <span class="ast-announcement-text" id="ast-announcement-text"></span>
+        <!-- djlint:off H021-->
+        <!-- for inline styles -->
+        <a class="ast-announcement-details-btn" id="ast-announcement-details-btn"
+           href=""
+           data-ast-url=""
+           aria-label="View notifications"
+           style="display:none">View</a>
+        <!-- djlint:on -->
+        <!-- djlint:off H023-->
+        <!-- use entity reference for &times; -->
+        <button class="ast-announcement-close" id="ast-announcement-close" aria-label="Close announcement">&times;</button>
+        <!-- djlint:on -->
+    </div>
+</div>
+
+<!-- Modal overlay -->
+<!-- djlint:off H023-->
+<!-- use entity reference for &times; -->
+<div class="ast-announcement-overlay" id="ast-announcement-overlay" role="dialog" aria-modal="true" aria-label="Announcement details">
+    <div class="ast-announcement-modal info">
+        <div class="ast-announcement-modal-body"
+             data-ast-items='[]'>
+        </div>
+        <button class="ast-announcement-modal-close" id="ast-announcement-modal-close" aria-label="Close">&times;</button>
+    </div>
+</div>
+<!-- djlint:on -->
+
+<script src="../_static/js/announcement_banner.js"
+        data-base-url="../"></script>
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../index.html" title="ansys-aedt-toolkits-radar home">Home</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../toolkit/ui.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../toolkit/api.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../changelog.html">
+    Release notes
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+  
+</div></div>
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/ansys-aedt-toolkits-radar-explorer" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/issues" title="Support" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i><span class="visually-hidden">Support</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://aedt.radar.explorer.toolkit.docs.pyansys.com/version/dev/_static/assets/download/ansys-aedt-toolkits-radar-explorer.pdf" title="Download documentation in PDF" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-file-pdf fa-fw fa-lg" aria-hidden="true"></i><span class="visually-hidden">Download documentation in PDF</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Set AEDT version</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+  
+
+  
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p>Copyright (C) 2024 - 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved. SPDX-License-Identifier: Apache-2.0</p>
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not use this file except in compliance with the License. You may obtain a copy of the License at</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>http://www.apache.org/licenses/LICENSE-2.0
+</pre></div>
+</div>
+<p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ansys.aedt.toolkits.radar_explorer.backend.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">ToolkitBackend</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ansys.aedt.toolkits.radar_explorer.rcs_visualization</span><span class="w"> </span><span class="kn">import</span> <span class="n">MonostaticRCSData</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ansys.aedt.toolkits.radar_explorer.rcs_visualization</span><span class="w"> </span><span class="kn">import</span> <span class="n">MonostaticRCSPlotter</span>
+</pre></div>
+</div>
+</div>
+<section id="Set-AEDT-version">
+<h1>Set AEDT version<a class="headerlink" href="#Set-AEDT-version" title="Link to this heading">#</a></h1>
+<p>Set AEDT version.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aedt_version</span> <span class="o">=</span> <span class="s2">"2026.1"</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Set-non-graphical-mode">
+<h1>Set non-graphical mode<a class="headerlink" href="#Set-non-graphical-mode" title="Link to this heading">#</a></h1>
+<p>Set non-graphical mode.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">non_graphical</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Set-number-of-cores">
+<h1>Set number of cores<a class="headerlink" href="#Set-number-of-cores" title="Link to this heading">#</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cores</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Create-temporary-directory">
+<h1>Create temporary directory<a class="headerlink" href="#Create-temporary-directory" title="Link to this heading">#</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_dir</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="s2">"_ansys"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Example-project">
+<h1>Example project<a class="headerlink" href="#Example-project" title="Link to this heading">#</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"example_models\ogive-IE.aedtz"</span>
+<span class="n">project_name</span> <span class="o">=</span> <span class="n">temp_dir</span><span class="o">.</span><span class="n">name</span> <span class="o">/</span> <span class="s2">"ogive-IE.aedtz"</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">project_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[7]</span><span class="ansi-green-fg">, line 2</span>
+<span class="ansi-green-fg">      1</span> original = <span class="ansi-yellow-fg">r&#34;example_models\ogive-IE.aedtz&#34;</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> project_name = temp_dir.name / <span class="ansi-yellow-fg">&#34;ogive-IE.aedtz&#34;</span>
+<span class="ansi-green-fg">      3</span> shutil.copy(original, project_name)
+
+<span class="ansi-red-fg">TypeError</span>: unsupported operand type(s) for /: &#39;str&#39; and &#39;str&#39;
+</pre></div></div>
+</div>
+</section>
+<section id="Initialize-toolkit">
+<h1>Initialize toolkit<a class="headerlink" href="#Initialize-toolkit" title="Link to this heading">#</a></h1>
+<p>Initialize the toolkit.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">toolkit_api</span> <span class="o">=</span> <span class="n">ToolkitBackend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Set-properties">
+<h1>Set properties<a class="headerlink" href="#Set-properties" title="Link to this heading">#</a></h1>
+<p>Set non-graphical mode.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_properties</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"non_graphical"</span><span class="p">:</span> <span class="n">non_graphical</span><span class="p">,</span> <span class="s2">"aedt_version"</span><span class="p">:</span> <span class="n">aedt_version</span><span class="p">}</span>
+<span class="n">flag1</span><span class="p">,</span> <span class="n">msg1</span> <span class="o">=</span> <span class="n">toolkit_api</span><span class="o">.</span><span class="n">set_properties</span><span class="p">(</span><span class="n">new_properties</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+INFO - Updating internal properties.
+</pre></div></div>
+</div>
+</section>
+<section id="Initialize-AEDT">
+<h1>Initialize AEDT<a class="headerlink" href="#Initialize-AEDT" title="Link to this heading">#</a></h1>
+<p>Launch a new AEDT session in a thread.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">thread_msg</span> <span class="o">=</span> <span class="n">toolkit_api</span><span class="o">.</span><span class="n">launch_thread</span><span class="p">(</span><span class="n">toolkit_api</span><span class="o">.</span><span class="n">launch_aedt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+PyAEDT INFO: Python version 3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)].
+PyAEDT INFO: PyAEDT version 1.5.0.
+PyAEDT INFO: Initializing new Desktop session.
+</pre></div></div>
+</div>
+</section>
+<section id="Wait-for-the-toolkit-thread-to-be-idle">
+<h1>Wait for the toolkit thread to be idle<a class="headerlink" href="#Wait-for-the-toolkit-thread-to-be-idle" title="Link to this heading">#</a></h1>
+<p>Wait for the toolkit thread to be idle and ready to accept a new task.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">idle</span> <span class="o">=</span> <span class="n">toolkit_api</span><span class="o">.</span><span class="n">wait_to_be_idle</span><span class="p">()</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">idle</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"AEDT not initialized."</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+PyAEDT INFO: New AEDT session is starting on gRPC port 62190.
+PyAEDT INFO: Starting new AEDT gRPC session on port 62190.
+PyAEDT INFO: Launching AEDT server with gRPC transport mode: TransportMode.WNUA
+PyAEDT INFO: Electronics Desktop started on gRPC port 62190 after 11.4 seconds.
+PyAEDT INFO: AEDT installation Path C:\Program Files\ANSYS Inc\v261\AnsysEM
+PyAEDT INFO: 2026.1 version started with process ID 1732.
+PyAEDT INFO: Non-graphical mode detected. Disabling Desktop logs.
+PyAEDT INFO: Desktop has been released.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+INFO - AEDT is released.
+</pre></div></div>
+</div>
+</section>
+<section id="Open-project">
+<h1>Open project<a class="headerlink" href="#Open-project" title="Link to this heading">#</a></h1>
+<p>Open the project.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">open_msg</span> <span class="o">=</span> <span class="n">toolkit_api</span><span class="o">.</span><span class="n">open_project</span><span class="p">(</span><span class="n">project_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[12]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> open_msg = toolkit_api.open_project(project_name)
+
+<span class="ansi-red-fg">NameError</span>: name &#39;project_name&#39; is not defined
+</pre></div></div>
+</div>
+</section>
+<section id="Set-setup-properties">
+<h1>Set setup properties<a class="headerlink" href="#Set-setup-properties" title="Link to this heading">#</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">toolkit_api</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">setup_name</span> <span class="o">=</span> <span class="s2">"Setup1"</span>
+<span class="n">toolkit_api</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">setup</span><span class="o">.</span><span class="n">sweep_name</span> <span class="o">=</span> <span class="s2">"LastAdaptive"</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Get-RCS-data">
+<h1>Get RCS data<a class="headerlink" href="#Get-RCS-data" title="Link to this heading">#</a></h1>
+<p>Direct export</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rcs_metadata</span> <span class="o">=</span> <span class="n">toolkit_api</span><span class="o">.</span><span class="n">export_rcs</span><span class="p">(</span><span class="n">excitation</span><span class="o">=</span><span class="s2">"IncPWave1"</span><span class="p">,</span> <span class="n">encode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+PyAEDT INFO: Python version 3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)].
+PyAEDT INFO: PyAEDT version 1.5.0.
+PyAEDT INFO: Initializing Desktop session.
+PyAEDT INFO: AEDT version 2026.1.
+PyAEDT INFO: Port 62190 session has been found.
+PyAEDT INFO: AEDT installation Path C:\Program Files\ANSYS Inc\v261\AnsysEM
+PyAEDT INFO: Connected to AEDT gRPC session on port 62190.
+PyAEDT INFO: Non-graphical mode detected. Disabling Desktop logs.
+PyAEDT INFO: Python version 3.14.5 (tags/v3.14.5:5607950, May 10 2026, 10:43:50) [MSC v.1944 64 bit (AMD64)].
+PyAEDT INFO: PyAEDT version 1.5.0.
+PyAEDT INFO: Returning found Desktop session with PID 1732!
+PyAEDT INFO: Project Project1 has been created.
+PyAEDT INFO: Added design &#39;HFSS_Q0O5BS&#39; of type HFSS.
+PyAEDT INFO: AEDT objects correctly read
+PyAEDT INFO: Project Project1 Saved correctly
+PyAEDT INFO: Active Design set to HFSS_Q0O5BS
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+INFO - Updating internal properties.
+INFO - Toolkit is connected to AEDT design.
+INFO - Exporting RCS data for setup and sweep: Setup1 : LastAdaptive.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+PyAEDT INFO: Parsing C:\Users\ansys\AppData\Local\Temp\pytest-of-ansys\pytest-8479\Project1.aedt.
+PyAEDT INFO: File C:\Users\ansys\AppData\Local\Temp\pytest-of-ansys\pytest-8479\Project1.aedt correctly loaded. Elapsed time: 0m 0sec
+PyAEDT INFO: aedt file load time 0.02042698860168457
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: PostProcessor class has been initialized! Elapsed time: 0m 0sec
+PyAEDT INFO: Post class has been initialized! Elapsed time: 0m 0sec
+PyAEDT ERROR: **************************************************************
+PyAEDT ERROR:   File &#34;&lt;frozen runpy&gt;&#34;, line 203, in _run_module_as_main
+PyAEDT ERROR:   File &#34;&lt;frozen runpy&gt;&#34;, line 88, in _run_code
+PyAEDT ERROR:   File &#34;C:\actions-runner\_work\_tool\Python\3.14.5\x64\Lib\asyncio\base_events.py&#34;, line 677, in run_forever
+PyAEDT ERROR:     self._run_once()
+PyAEDT ERROR:   File &#34;C:\actions-runner\_work\_tool\Python\3.14.5\x64\Lib\asyncio\base_events.py&#34;, line 2057, in _run_once
+PyAEDT ERROR:     handle._run()
+PyAEDT ERROR:   File &#34;C:\actions-runner\_work\_tool\Python\3.14.5\x64\Lib\asyncio\events.py&#34;, line 94, in _run
+PyAEDT ERROR:     self._context.run(self._callback, *self._args)
+PyAEDT ERROR:   File &#34;C:\Users\ansys\AppData\Local\Temp\ipykernel_2668\2380056415.py&#34;, line 1, in &lt;module&gt;
+PyAEDT ERROR:     rcs_metadata = toolkit_api.export_rcs(excitation=&#34;IncPWave1&#34;, encode=False)
+PyAEDT ERROR:   File &#34;C:\actions-runner\_work\ansys-aedt-toolkits-radar-explorer\ansys-aedt-toolkits-radar-explorer\.venv\Lib\site-packages\ansys\aedt\toolkits\radar_explorer\backend\api.py&#34;, line 778, in export_rcs
+PyAEDT ERROR:     rcs_data = self.aedtapp.post.get_solution_data(
+PyAEDT ERROR:   File &#34;C:\actions-runner\_work\ansys-aedt-toolkits-radar-explorer\ansys-aedt-toolkits-radar-explorer\.venv\Lib\site-packages\ansys\aedt\core\visualization\post\common.py&#34;, line 1996, in get_solution_data
+PyAEDT ERROR:     report = self._get_report_object(
+PyAEDT ERROR:   File &#34;C:\actions-runner\_work\ansys-aedt-toolkits-radar-explorer\ansys-aedt-toolkits-radar-explorer\.venv\Lib\site-packages\ansys\aedt\core\visualization\post\common.py&#34;, line 1487, in _get_report_object
+PyAEDT ERROR:     raise KeyError(f&#34;Setup {setup_name} not available in current design.&#34;)
+PyAEDT ERROR: &#39;setup setup1 not available in current design.&#39; on _get_report_object
+PyAEDT ERROR: Method arguments:
+PyAEDT ERROR:     setup_sweep_name = Setup1 : LastAdaptive
+PyAEDT ERROR:     report_category = Monostatic RCS
+PyAEDT ERROR:     polyline_points = 1001
+PyAEDT ERROR: **************************************************************
+PyAEDT INFO: Desktop has been released.
+PyAEDT ERROR: **************************************************************
+PyAEDT ERROR:   File &#34;&lt;frozen runpy&gt;&#34;, line 203, in _run_module_as_main
+PyAEDT ERROR:   File &#34;&lt;frozen runpy&gt;&#34;, line 88, in _run_code
+PyAEDT ERROR:   File &#34;C:\actions-runner\_work\_tool\Python\3.14.5\x64\Lib\asyncio\base_events.py&#34;, line 677, in run_forever
+PyAEDT ERROR:     self._run_once()
+PyAEDT ERROR:   File &#34;C:\actions-runner\_work\_tool\Python\3.14.5\x64\Lib\asyncio\base_events.py&#34;, line 2057, in _run_once
+PyAEDT ERROR:     handle._run()
+PyAEDT ERROR:   File &#34;C:\actions-runner\_work\_tool\Python\3.14.5\x64\Lib\asyncio\events.py&#34;, line 94, in _run
+PyAEDT ERROR:     self._context.run(self._callback, *self._args)
+PyAEDT ERROR:   File &#34;C:\Users\ansys\AppData\Local\Temp\ipykernel_2668\2380056415.py&#34;, line 1, in &lt;module&gt;
+PyAEDT ERROR:     rcs_metadata = toolkit_api.export_rcs(excitation=&#34;IncPWave1&#34;, encode=False)
+PyAEDT ERROR:   File &#34;C:\actions-runner\_work\ansys-aedt-toolkits-radar-explorer\ansys-aedt-toolkits-radar-explorer\.venv\Lib\site-packages\ansys\aedt\toolkits\radar_explorer\backend\api.py&#34;, line 778, in export_rcs
+PyAEDT ERROR:     rcs_data = self.aedtapp.post.get_solution_data(
+PyAEDT ERROR:   File &#34;C:\actions-runner\_work\ansys-aedt-toolkits-radar-explorer\ansys-aedt-toolkits-radar-explorer\.venv\Lib\site-packages\ansys\aedt\core\visualization\post\common.py&#34;, line 1996, in get_solution_data
+PyAEDT ERROR:     report = self._get_report_object(
+PyAEDT ERROR:         expressions=expressions,
+PyAEDT ERROR:     ...&lt;8 lines&gt;...
+PyAEDT ERROR:         polyline_points=polyline_points,
+PyAEDT ERROR:     )
+PyAEDT ERROR:   File &#34;C:\actions-runner\_work\ansys-aedt-toolkits-radar-explorer\ansys-aedt-toolkits-radar-explorer\.venv\Lib\site-packages\ansys\aedt\core\visualization\post\common.py&#34;, line 1487, in _get_report_object
+PyAEDT ERROR:     raise KeyError(f&#34;Setup {setup_name} not available in current design.&#34;)
+PyAEDT ERROR: &#39;setup setup1 not available in current design.&#39; on get_solution_data
+PyAEDT ERROR: Method arguments:
+PyAEDT ERROR:     setup_sweep_name = Setup1 : LastAdaptive
+PyAEDT ERROR:     report_category = Monostatic RCS
+PyAEDT ERROR: **************************************************************
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[14]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> rcs_metadata = toolkit_api.export_rcs(excitation=<span class="ansi-yellow-fg">&#34;IncPWave1&#34;</span>, encode=<span class="ansi-bold" style="color: rgb(0,135,0)">False</span>)
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">C:\actions-runner\_work\ansys-aedt-toolkits-radar-explorer\ansys-aedt-toolkits-radar-explorer\.venv\Lib\site-packages\ansys\aedt\toolkits\radar_explorer\backend\api.py:778</span>, in <span class="ansi-cyan-fg">ToolkitBackend.export_rcs</span><span class="ansi-blue-fg">(self, excitation, expression, encode)</span>
+<span class="ansi-green-fg">    775</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">    776</span>         <span style="color: rgb(0,135,0)">self</span>.aedtapp.edit_sources(assignment={excitations[<span class="ansi-green-fg">0</span>]: <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">0</span><span class="ansi-yellow-fg">&#34;</span>, excitations[<span class="ansi-green-fg">1</span>]: <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">1</span><span class="ansi-yellow-fg">&#34;</span>})
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">778</span> rcs_data = <span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">aedtapp</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">post</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">get_solution_data</span><span class="ansi-black-fg ansi-yellow-bg">(</span>
+<span class="ansi-green-fg">    779</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">expressions</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">expression</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    780</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">variations</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">variations</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    781</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">setup_sweep_name</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">setup_sweep_name</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    782</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">report_category</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">&#34;</span><span class="ansi-black-fg ansi-yellow-bg">Monostatic RCS</span><span class="ansi-black-fg ansi-yellow-bg">&#34;</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">    783</span> <span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    784</span> frequencies = <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>
+<span class="ansi-green-fg">    785</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> rcs_data <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> <span style="color: rgb(0,135,0)">getattr</span>(rcs_data, <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">primary_sweep_values</span><span class="ansi-yellow-fg">&#34;</span>, <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>) <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">C:\actions-runner\_work\ansys-aedt-toolkits-radar-explorer\ansys-aedt-toolkits-radar-explorer\.venv\Lib\site-packages\ansys\aedt\core\generic\general_methods.py:279</span>, in <span class="ansi-cyan-fg">_function_handler_wrapper.&lt;locals&gt;.wrapper</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-fg">    277</span>     msg = msg.capitalize()
+<span class="ansi-green-fg">    278</span> _exception(sys.exc_info(), user_function, args, kwargs, msg)
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">279</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-black-fg ansi-yellow-bg">raise_exception_or_return_false</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">e</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">C:\actions-runner\_work\ansys-aedt-toolkits-radar-explorer\ansys-aedt-toolkits-radar-explorer\.venv\Lib\site-packages\ansys\aedt\core\generic\general_methods.py:241</span>, in <span class="ansi-cyan-fg">raise_exception_or_return_false</span><span class="ansi-blue-fg">(e)</span>
+<span class="ansi-green-fg">    238</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> v <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">list</span>(_desktop_sessions.values())[:]:
+<span class="ansi-green-fg">    239</span>             v.release_desktop(close_projects=v.close_on_exit, close_on_exit=v.close_on_exit)
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">241</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> e
+<span class="ansi-green-fg">    242</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">__init__</span><span class="ansi-yellow-fg">&#34;</span> <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">str</span>(e):  <span style="color: rgb(95,135,135)"># pragma: no cover</span>
+<span class="ansi-green-fg">    243</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span>
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">C:\actions-runner\_work\ansys-aedt-toolkits-radar-explorer\ansys-aedt-toolkits-radar-explorer\.venv\Lib\site-packages\ansys\aedt\core\generic\general_methods.py:254</span>, in <span class="ansi-cyan-fg">_function_handler_wrapper.&lt;locals&gt;.wrapper</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-fg">    252</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">    253</span>     settings.time_tick = time.time()
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">254</span>     out = <span class="ansi-black-fg ansi-yellow-bg">user_function</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">args</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">kwargs</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    255</span>     _log_method(user_function, args, kwargs)
+<span class="ansi-green-fg">    256</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> out
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">C:\actions-runner\_work\ansys-aedt-toolkits-radar-explorer\ansys-aedt-toolkits-radar-explorer\.venv\Lib\site-packages\ansys\aedt\core\visualization\post\common.py:1996</span>, in <span class="ansi-cyan-fg">PostProcessorCommon.get_solution_data</span><span class="ansi-blue-fg">(self, expressions, setup_sweep_name, domain, variations, primary_sweep_variable, report_category, context, subdesign_id, polyline_points, math_formula)</span>
+<span class="ansi-green-fg">   1855</span> <span style="color: rgb(175,0,255)">@pyaedt_function_handler</span>()
+<span class="ansi-green-fg">   1856</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span class="ansi-blue-fg">get_solution_data</span>(
+<span class="ansi-green-fg">   1857</span>     <span style="color: rgb(0,135,0)">self</span>,
+<span class="ansi-green-fg">   (...)</span><span class="ansi-green-fg">   1867</span>     math_formula: <span style="color: rgb(0,135,0)">str</span> | <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> = <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>,
+<span class="ansi-green-fg">   1868</span> ) -&gt; SolutionData | <span style="color: rgb(0,135,0)">bool</span>:
+<span class="ansi-green-fg">   1869</span> <span style="color: rgb(188,188,188)">    </span><span class="ansi-yellow-fg">&#34;&#34;&#34;Get a simulation result from a solved setup and cast it in a ``SolutionData`` object.</span>
+<span class="ansi-green-fg">   1870</span>
+<span class="ansi-green-fg">   1871</span> <span class="ansi-yellow-fg">    Data to be retrieved from Electronics Desktop are any simulation results available in that</span>
+<span class="ansi-green-fg">   (...)</span><span class="ansi-green-fg">   1994</span>
+<span class="ansi-green-fg">   1995</span> <span class="ansi-yellow-fg">    &#34;&#34;&#34;</span>
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1996</span>     report = <span class="ansi-black-fg ansi-yellow-bg">self</span><span class="ansi-black-fg ansi-yellow-bg">.</span><span class="ansi-black-fg ansi-yellow-bg">_get_report_object</span><span class="ansi-black-fg ansi-yellow-bg">(</span>
+<span class="ansi-green-fg">   1997</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">expressions</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">expressions</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   1998</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">setup_sweep_name</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">setup_sweep_name</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   1999</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">domain</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">domain</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   2000</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">variations</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">variations</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   2001</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">primary_sweep_variable</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">primary_sweep_variable</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   2002</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">secondary_sweep_variable</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-intense-fg ansi-yellow-bg ansi-bold">None</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   2003</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">report_category</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">report_category</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   2004</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">context</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">context</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   2005</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">subdesign_id</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">subdesign_id</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   2006</span> <span class="ansi-black-fg ansi-yellow-bg">        </span><span class="ansi-black-fg ansi-yellow-bg">polyline_points</span><span class="ansi-black-fg ansi-yellow-bg">=</span><span class="ansi-black-fg ansi-yellow-bg">polyline_points</span><span class="ansi-black-fg ansi-yellow-bg">,</span>
+<span class="ansi-green-fg">   2007</span> <span class="ansi-black-fg ansi-yellow-bg">    </span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">   2008</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> math_formula:
+<span class="ansi-green-fg">   2009</span>         expressions = [<span class="ansi-yellow-fg">f</span><span class="ansi-yellow-fg">&#34;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>math_formula<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span class="ansi-yellow-fg">(</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>i<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span class="ansi-yellow-fg">)</span><span class="ansi-yellow-fg">&#34;</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> i <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> report.expressions]
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">C:\actions-runner\_work\ansys-aedt-toolkits-radar-explorer\ansys-aedt-toolkits-radar-explorer\.venv\Lib\site-packages\ansys\aedt\core\generic\general_methods.py:279</span>, in <span class="ansi-cyan-fg">_function_handler_wrapper.&lt;locals&gt;.wrapper</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-fg">    277</span>     msg = msg.capitalize()
+<span class="ansi-green-fg">    278</span> _exception(sys.exc_info(), user_function, args, kwargs, msg)
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">279</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-black-fg ansi-yellow-bg">raise_exception_or_return_false</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">e</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">C:\actions-runner\_work\ansys-aedt-toolkits-radar-explorer\ansys-aedt-toolkits-radar-explorer\.venv\Lib\site-packages\ansys\aedt\core\generic\general_methods.py:241</span>, in <span class="ansi-cyan-fg">raise_exception_or_return_false</span><span class="ansi-blue-fg">(e)</span>
+<span class="ansi-green-fg">    238</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> v <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">list</span>(_desktop_sessions.values())[:]:
+<span class="ansi-green-fg">    239</span>             v.release_desktop(close_projects=v.close_on_exit, close_on_exit=v.close_on_exit)
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">241</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> e
+<span class="ansi-green-fg">    242</span> <span class="ansi-bold" style="color: rgb(0,135,0)">elif</span> <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">__init__</span><span class="ansi-yellow-fg">&#34;</span> <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">str</span>(e):  <span style="color: rgb(95,135,135)"># pragma: no cover</span>
+<span class="ansi-green-fg">    243</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span>
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">C:\actions-runner\_work\ansys-aedt-toolkits-radar-explorer\ansys-aedt-toolkits-radar-explorer\.venv\Lib\site-packages\ansys\aedt\core\generic\general_methods.py:254</span>, in <span class="ansi-cyan-fg">_function_handler_wrapper.&lt;locals&gt;.wrapper</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-fg">    252</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">    253</span>     settings.time_tick = time.time()
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">254</span>     out = <span class="ansi-black-fg ansi-yellow-bg">user_function</span><span class="ansi-black-fg ansi-yellow-bg">(</span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">args</span><span class="ansi-black-fg ansi-yellow-bg">,</span><span class="ansi-black-fg ansi-yellow-bg"> </span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">*</span><span class="ansi-black-fg ansi-yellow-bg">kwargs</span><span class="ansi-black-fg ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    255</span>     _log_method(user_function, args, kwargs)
+<span class="ansi-green-fg">    256</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> out
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">C:\actions-runner\_work\ansys-aedt-toolkits-radar-explorer\ansys-aedt-toolkits-radar-explorer\.venv\Lib\site-packages\ansys\aedt\core\visualization\post\common.py:1487</span>, in <span class="ansi-cyan-fg">PostProcessorCommon._get_report_object</span><span class="ansi-blue-fg">(self, expressions, setup_sweep_name, domain, variations, primary_sweep_variable, secondary_sweep_variable, report_category, context, subdesign_id, polyline_points)</span>
+<span class="ansi-green-fg">   1482</span> setup_name = setup_sweep_name.split(<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">:</span><span class="ansi-yellow-fg">&#34;</span>)[<span class="ansi-green-fg">0</span>].strip()
+<span class="ansi-green-fg">   1483</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> (
+<span class="ansi-green-fg">   1484</span>     <span style="color: rgb(0,135,0)">self</span>._app.design_type <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> [<span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Circuit Netlist</span><span class="ansi-yellow-fg">&#34;</span>, <span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Twin Builder</span><span class="ansi-yellow-fg">&#34;</span>]
+<span class="ansi-green-fg">   1485</span>     <span class="ansi-bold" style="color: rgb(175,0,255)">and</span> setup_name <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">self</span>._app.setup_sweeps_names
+<span class="ansi-green-fg">   1486</span> ):
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1487</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">KeyError</span>(<span class="ansi-yellow-fg">f</span><span class="ansi-yellow-fg">&#34;</span><span class="ansi-yellow-fg">Setup </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>setup_name<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span class="ansi-yellow-fg"> not available in current design.</span><span class="ansi-yellow-fg">&#34;</span>)
+<span class="ansi-green-fg">   1489</span> <span style="color: rgb(95,135,135)"># Domain</span>
+<span class="ansi-green-fg">   1490</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> domain:
+
+<span class="ansi-red-fg">KeyError</span>: &#39;Setup Setup1 not available in current design.&#39;
+</pre></div></div>
+</div>
+</section>
+<section id="Save-and-release-AEDT">
+<h1>Save and release AEDT<a class="headerlink" href="#Save-and-release-AEDT" title="Link to this heading">#</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">toolkit_api</span><span class="o">.</span><span class="n">release_aedt</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+INFO - AEDT is released.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+</section>
+<section id="Load-RCS-data">
+<h1>Load RCS data<a class="headerlink" href="#Load-RCS-data" title="Link to this heading">#</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rcs_data</span> <span class="o">=</span> <span class="n">MonostaticRCSData</span><span class="p">(</span><span class="n">rcs_metadata</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[16]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> rcs_data = MonostaticRCSData(rcs_metadata)
+
+<span class="ansi-red-fg">NameError</span>: name &#39;rcs_metadata&#39; is not defined
+</pre></div></div>
+</div>
+</section>
+<section id="Load-RCS-Plotter">
+<h1>Load RCS Plotter<a class="headerlink" href="#Load-RCS-Plotter" title="Link to this heading">#</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rcs_data_plotter</span> <span class="o">=</span> <span class="n">MonostaticRCSPlotter</span><span class="p">(</span><span class="n">rcs_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[17]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> rcs_data_plotter = MonostaticRCSPlotter(rcs_data)
+
+<span class="ansi-red-fg">NameError</span>: name &#39;rcs_data&#39; is not defined
+</pre></div></div>
+</div>
+</section>
+<section id="Select-cut">
+<h1>Select cut<a class="headerlink" href="#Select-cut" title="Link to this heading">#</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">primary_sweep</span> <span class="o">=</span> <span class="s2">"IWavePhi"</span>
+<span class="n">secondary_sweep_value</span> <span class="o">=</span> <span class="n">rcs_data_plotter</span><span class="o">.</span><span class="n">rcs_data</span><span class="o">.</span><span class="n">incident_wave_theta</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[18]</span><span class="ansi-green-fg">, line 2</span>
+<span class="ansi-green-fg">      1</span> primary_sweep = <span class="ansi-yellow-fg">&#34;IWavePhi&#34;</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> secondary_sweep_value = rcs_data_plotter.rcs_data.incident_wave_theta
+
+<span class="ansi-red-fg">NameError</span>: name &#39;rcs_data_plotter&#39; is not defined
+</pre></div></div>
+</div>
+</section>
+<section id="Plot-RCS">
+<h1>Plot RCS<a class="headerlink" href="#Plot-RCS" title="Link to this heading">#</a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span> <span class="o">=</span> <span class="n">rcs_data_plotter</span><span class="o">.</span><span class="n">plot_rcs</span><span class="p">(</span><span class="n">primary_sweep</span><span class="o">=</span><span class="n">primary_sweep</span><span class="p">,</span> <span class="n">secondary_sweep_value</span><span class="o">=</span><span class="n">secondary_sweep_value</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[19]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> plot = rcs_data_plotter.plot_rcs(primary_sweep=primary_sweep, secondary_sweep_value=secondary_sweep_value)
+
+<span class="ansi-red-fg">NameError</span>: name &#39;rcs_data_plotter&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_freq</span> <span class="o">=</span> <span class="n">rcs_data_plotter</span><span class="o">.</span><span class="n">plot_rcs</span><span class="p">(</span><span class="n">primary_sweep</span><span class="o">=</span><span class="s2">"Freq"</span><span class="p">,</span> <span class="n">secondary_sweep</span><span class="o">=</span><span class="s2">"IWavePhi"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[20]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> plot_freq = rcs_data_plotter.plot_rcs(primary_sweep=<span class="ansi-yellow-fg">&#34;Freq&#34;</span>, secondary_sweep=<span class="ansi-yellow-fg">&#34;IWavePhi&#34;</span>)
+
+<span class="ansi-red-fg">NameError</span>: name &#39;rcs_data_plotter&#39; is not defined
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wait 3 seconds to allow AEDT to shut down before cleaning the temporary directory.</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Clean-temporary-directory">
+<h1>Clean temporary directory<a class="headerlink" href="#Clean-temporary-directory" title="Link to this heading">#</a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temp_dir</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Set AEDT version</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Set-non-graphical-mode">Set non-graphical mode</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Set-number-of-cores">Set number of cores</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Create-temporary-directory">Create temporary directory</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Example-project">Example project</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Initialize-toolkit">Initialize toolkit</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Set-properties">Set properties</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Initialize-AEDT">Initialize AEDT</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Wait-for-the-toolkit-thread-to-be-idle">Wait for the toolkit thread to be idle</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Open-project">Open project</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Set-setup-properties">Set setup properties</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Get-RCS-data">Get RCS data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Save-and-release-AEDT">Save and release AEDT</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Load-RCS-data">Load RCS data</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Load-RCS-Plotter">Load RCS Plotter</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Select-cut">Select cut</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Plot-RCS">Plot RCS</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#Clean-temporary-directory">Clean temporary directory</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+
+  
+  <nav class="tocsection editthispage" aria-label="Edit this page">
+    <a href="https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/edit/main/doc/source/examples/get_rcs_IE.py" rel="noopener noreferrer">
+      <i class="fa-solid fa-pencil" aria-hidden="true"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </nav>
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../_sources/examples/get_rcs_IE.py.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"includeMatches": true, "includeScore": true, "keys": [{"name": "section", "weight": 3}, {"name": "title", "weight": 3}, {"name": "text", "weight": 1}, {"name": "objectID", "weight": 0.5}], "limit": 10, "threshold": 0.2}');
+const SEARCH_FILE = "../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026 Synopsys, Inc. and ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<!--
+  Theme Version Footer
+  Displays the Sphinx theme version and the last updated date.
+  Accessibility and semantic improvements included.
+-->
+<footer class="theme-version" aria-label="Theme version and last update">
+  <span>
+    
+      Built with the
+      <a href="https://sphinxdocs.ansys.com/version/stable/index.html" target="_blank" rel="noopener noreferrer">
+        Ansys Sphinx Theme
+      </a>
+      1.11.0.
+    
+  </span>
+  <br />
+  <span>Last updated on <time id="ast_build_date"></time></span>
+</footer>
+<script>
+  // Set the last updated date in a readable format
+  (function() {
+    var options = { day: "numeric", month: "long", year: "numeric" };
+    var ast_lastModifiedDate = new Date(document.lastModified);
+    var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+    var dateElem = document.getElementById("ast_build_date");
+    if (dateElem) {
+      dateElem.textContent = ast_build_date;
+    }
+  })();
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
