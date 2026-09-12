@@ -3863,7 +3863,7 @@ wheels = [
 
 [[package]]
 name = "pyaedt"
-version = "1.4.0"
+version = "1.5.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ansys-tools-common" },
@@ -3879,9 +3879,9 @@ dependencies = [
     { name = "tomli", marker = "python_full_version < '3.11'" },
     { name = "tomli-w" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/12/b2/86b33b7cd20b58f3ed149f899b01f83817a9ad0cf505ff329e23c7aa079c/pyaedt-1.4.0.tar.gz", hash = "sha256:b35066363896a5ac1318be5306ae95fe28ef337830a725475bdd8a7830e93a1c", size = 27683522, upload-time = "2026-08-13T09:40:38.005Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/7d/bb/cad703d6c02efe5cbf6641c58d7f719fe1cd8bdea45f9cf50e25deaa83d1/pyaedt-1.5.1.tar.gz", hash = "sha256:a729fbf36617050b8df1a9eb99a2bd783b97140c12d638bd3773c2f3d1433b2e", size = 27654569, upload-time = "2026-09-10T09:30:21.015Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/de/8a/67ee2fc959439f3522b9c77b8f46ef55fd7917ee378f8c53d64a04acea4d/pyaedt-1.4.0-py3-none-any.whl", hash = "sha256:06ce66da33f0c7b19620f209fc55d63515b880cab0ab9c2cfc35a8d1de0c890e", size = 7612475, upload-time = "2026-08-13T09:40:33.963Z" },
+    { url = "https://files.pythonhosted.org/packages/4a/0a/65ea56a6199ddf4f2bea6cf78760471c0cf905ee1ff31de2168554a3f144/pyaedt-1.5.1-py3-none-any.whl", hash = "sha256:ee5c3e5d8539b9195fc0de8389e147ac50987704f62fee7ac41602b0d0d297e6", size = 7659259, upload-time = "2026-09-10T09:30:17.968Z" },
 ]
 
 [package.optional-dependencies]
