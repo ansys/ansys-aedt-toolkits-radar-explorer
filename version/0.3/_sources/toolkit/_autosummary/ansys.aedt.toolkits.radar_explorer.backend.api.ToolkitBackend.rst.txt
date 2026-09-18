@@ -1,0 +1,127 @@
+﻿ToolkitBackend
+==============
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. autoclass:: ToolkitBackend
+
+   
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :toctree:
+   
+      
+      
+      ToolkitBackend.add_plane_wave
+      
+      
+      ToolkitBackend.add_setup
+      
+      
+      ToolkitBackend.aedt_sessions
+      
+      
+      ToolkitBackend.analyze
+      
+      
+      ToolkitBackend.connect_aedt
+      
+      
+      ToolkitBackend.connect_design
+      
+      
+      ToolkitBackend.duplicate_sbr_design
+      
+      
+      ToolkitBackend.export_aedt_model
+      
+      
+      ToolkitBackend.export_rcs
+      
+      
+      ToolkitBackend.generate_3d_component
+      
+      
+      ToolkitBackend.get_design_names
+      
+      
+      ToolkitBackend.get_materials
+      
+      
+      ToolkitBackend.get_plane_waves
+      
+      
+      ToolkitBackend.get_project_name
+      
+      
+      ToolkitBackend.get_properties
+      
+      
+      ToolkitBackend.get_setups
+      
+      
+      ToolkitBackend.get_sweeps
+      
+      
+      ToolkitBackend.get_thread_status
+      
+      
+      ToolkitBackend.insert_cad_sbr
+      
+      
+      ToolkitBackend.insert_sbr_design
+      
+      
+      ToolkitBackend.installed_aedt_version
+      
+      
+      ToolkitBackend.is_aedt_connected
+      
+      
+      ToolkitBackend.is_sbr_design
+      
+      
+      ToolkitBackend.launch_aedt
+      
+      
+      ToolkitBackend.launch_thread
+      
+      
+      ToolkitBackend.open_project
+      
+      
+      ToolkitBackend.release_aedt
+      
+      
+      ToolkitBackend.save_project
+      
+      
+      ToolkitBackend.serialize_obj_base64
+      
+      
+      ToolkitBackend.set_properties
+      
+      
+      ToolkitBackend.update_isar_2d_properties
+      
+      
+      ToolkitBackend.update_range_profile_properties
+      
+      
+      ToolkitBackend.update_rcs_properties
+      
+      
+      ToolkitBackend.update_waterfall_properties
+      
+      
+      ToolkitBackend.wait_to_be_idle
+      
+   
+   
+
+   
+   
+   

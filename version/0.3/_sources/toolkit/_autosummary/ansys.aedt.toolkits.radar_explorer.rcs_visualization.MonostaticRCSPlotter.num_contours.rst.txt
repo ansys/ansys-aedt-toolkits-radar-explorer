@@ -1,0 +1,6 @@
+num\_contours
+=============
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. autoproperty:: MonostaticRCSPlotter.num_contours
