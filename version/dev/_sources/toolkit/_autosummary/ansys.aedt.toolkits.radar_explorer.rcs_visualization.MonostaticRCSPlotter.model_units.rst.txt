@@ -1,0 +1,6 @@
+model\_units
+============
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. autoproperty:: MonostaticRCSPlotter.model_units

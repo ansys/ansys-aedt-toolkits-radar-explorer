@@ -1,0 +1,6 @@
+aspect\_range
+=============
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. autoproperty:: MonostaticRCSData.aspect_range

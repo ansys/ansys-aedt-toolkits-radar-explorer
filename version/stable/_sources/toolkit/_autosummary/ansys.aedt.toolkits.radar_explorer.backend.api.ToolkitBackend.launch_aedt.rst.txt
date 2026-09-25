@@ -1,0 +1,6 @@
+launch\_aedt
+============
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. automethod:: ToolkitBackend.launch_aedt

@@ -1,0 +1,6 @@
+get\_plane\_cut\_from\_3d\_isar
+===============================
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. automethod:: MonostaticRCSPlotter.get_plane_cut_from_3d_isar
