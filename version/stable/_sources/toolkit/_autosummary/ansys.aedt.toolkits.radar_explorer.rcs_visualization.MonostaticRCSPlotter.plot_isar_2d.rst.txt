@@ -1,0 +1,6 @@
+plot\_isar\_2d
+==============
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. automethod:: MonostaticRCSPlotter.plot_isar_2d

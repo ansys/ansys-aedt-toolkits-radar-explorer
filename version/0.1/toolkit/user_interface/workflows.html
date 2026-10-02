@@ -1,0 +1,901 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Workflows &#8212; ansys-aedt-toolkits-radar</title>
+  
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/ansys-sphinx-theme.css?v=300e4a82" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles\ansys-sphinx-theme.css?v=300e4a82" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.nerdfonts.com/assets/css/webfont.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+
+  <!-- Include desired assets -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  
+
+  
+    <link href="../../_static/css/breadcrumbs.css" rel="stylesheet" />
+  
+    <script src="../../_static/documentation_options.js?v=a58bc63e"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'toolkit/user_interface/workflows';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://aedt.radar.explorer.toolkit.docs.pyansys.com/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="icon" href="../../_static/ansys-favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Radar configuration" href="radar_configuration.html" />
+    <link rel="prev" title="Settings" href="settings.html" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.1" />
+  <link rel="canonical" href="https://aedt.radar.explorer.toolkit.docs.pyansys.com/version/stable/toolkit/user_interface/workflows.html" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pyansys_logo_transparent_black.png" class="logo__image only-light" alt="ansys-aedt-toolkits-radar - Home"/>
+    <img src="../../_static/pyansys_logo_transparent_white.png" class="logo__image only-dark pst-js-only" alt="ansys-aedt-toolkits-radar - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html" title="ansys-aedt-toolkits-radar home">
+    Home
+</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../ui.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../contributing.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../changelog.html">
+    Release notes
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/ansys-aedt-toolkits-radar-explorer" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/issues" title="Support" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Support</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://aedt.radar.explorer.toolkit.docs.pyansys.com/version/0.1/_static/assets/download/ansys-aedt-toolkits-radar-explorer.pdf" title="Download documentation in PDF" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-file-pdf fa-fw fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Download documentation in PDF</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+  
+    <div id="announcement_msg"></div>
+<script>
+  fetch("announcement.html")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(
+      (text) => (document.getElementById("announcement_msg").innerHTML = text),
+    )
+    .catch((error) => console.error(`Fetch problem: ${error.message}`));
+</script>
+  
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="index.html" title="ansys-aedt-toolkits-radar home">
+    Home
+</a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_started/index.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../ui.html">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api.html">
+    API reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contributing.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../changelog.html">
+    Release notes
+  </a>
+</li>
+
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="search-bar pst-js-only" id="search-bar">
+  <form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="search" class="form-control" name="q" placeholder="Search the docs ..."
+      aria-label="Search the docs ..." autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" />
+    <span class="search-button__kbd-shortcut">
+      <kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd>
+    </span>
+  </form>
+  <div id="static-search-results" class="static-search-results" style="display:none;" tabindex="0"></div>
+</div></div>
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/ansys-aedt-toolkits-radar-explorer" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/issues" title="Support" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Support</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://aedt.radar.explorer.toolkit.docs.pyansys.com/version/0.1/_static/assets/download/ansys-aedt-toolkits-radar-explorer.pdf" title="Download documentation in PDF" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-file-pdf fa-fw fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Download documentation in PDF</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Workflows</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="radar_configuration.html">Radar configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post_3d.html">3D Postprocessing</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="post_2d.html">2D Postprocessing</a></li>
+
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+         
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="https://docs.pyansys.com/" class="nav-link">PyAnsys</a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a
+        href="../../index.html"
+        class="nav-link"
+        aria-label="Home"
+      >
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+     
+    <li class="breadcrumb-item">
+      <a href="../ui.html" class="nav-link">User guide</a>
+    </li>
+      
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Workflows</span></li>
+    
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="workflows">
+<h1>Workflows<a class="headerlink" href="#workflows" title="Link to this heading">#</a></h1>
+<p>The <strong>Home</strong> panel provides workflows to perform these tasks:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#importing-geometries"><span class="std std-ref">Import a geometry</span></a></p></li>
+<li><p><a class="reference internal" href="#solved-design"><span class="std std-ref">Load a solved HFSS design</span></a></p></li>
+<li><p><a class="reference internal" href="#duplicate-design"><span class="std std-ref">Duplicate an HFSS design</span></a></p></li>
+<li><p><a class="reference internal" href="#load-configuration"><span class="std std-ref">Load an analysis setup file</span></a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The workflows for importing a geometry, loading a solved HFSS design, and duplicating an HFSS design are available only when the Radar Explorer Toolkit is connected to AEDT. For more information, see <a class="reference internal" href="settings.html#settings"><span class="std std-ref">Settings</span></a>.</p>
+</div>
+<p>The <strong>Home</strong> panel also lets you access 3D settings. For more information, see <a class="reference internal" href="#settings-3d"><span class="std std-ref">Access 3D settings</span></a>.</p>
+</section>
+<section id="import-a-geometry">
+<span id="importing-geometries"></span><h1>Import a geometry<a class="headerlink" href="#import-a-geometry" title="Link to this heading">#</a></h1>
+<p>Use this workflow to import a geometry file into the toolkit’s plotter window and HFSS:</p>
+<ol class="arabic">
+<li><p>Go to the <strong>Home</strong> panel on the left sidebar.</p></li>
+<li><p>Set the toggles to <strong>AEDT Mode</strong> and <strong>Import geometry</strong>.</p></li>
+<li><p>Click the file icon to browse to and select a geometry file.</p>
+<p>Supported formats include STL, OBJ, GLTF, and GLB.</p>
+</li>
+<li><p>Edit the material, which must be available in HFSS materials, and position the geometry relative to the global coordinate system.</p>
+<a class="reference internal image-reference" href="../../_images/import_geometry.png"><img alt="Import geometry" class="align-center" src="../../_images/import_geometry.png" style="width: 800px;" />
+</a>
+</li>
+<li><p>Click <strong>Load</strong> to import the selected geometry.</p>
+<p>The <strong>Load</strong> button becomes unavailable to prevent redundant uploads.</p>
+<p>Once loaded, the geometry appears in the plotter window and is also available in HFSS.</p>
+<a class="reference internal image-reference" href="../../_images/import_geometries_loaded.png"><img alt="Geometry loaded in the plotter window" class="align-center" src="../../_images/import_geometries_loaded.png" style="width: 800px;" />
+</a>
+<a class="reference internal image-reference" href="../../_images/aedt_loaded_geometry.png"><img alt="Geometry loaded in HFSS" class="align-center" src="../../_images/aedt_loaded_geometry.png" style="width: 800px;" />
+</a>
+</li>
+<li><p>Change 3D settings if needed. For more information, see <a class="reference internal" href="#settings-3d"><span class="std std-ref">Access 3D settings</span></a>.</p></li>
+<li><p>Start radar configuration. For more information, see <a class="reference internal" href="radar_configuration.html#radar-configuration"><span class="std std-ref">Radar configuration</span></a>.</p></li>
+</ol>
+</section>
+<section id="load-a-solved-hfss-design">
+<span id="solved-design"></span><h1>Load a solved HFSS design<a class="headerlink" href="#load-a-solved-hfss-design" title="Link to this heading">#</a></h1>
+<p>Use this workflow to load a solved HFSS SBR+ design into the toolkit:</p>
+<ol class="arabic">
+<li><p>Go to the <strong>Home</strong> panel on the left sidebar.</p></li>
+<li><p>Set the toggles to <strong>AEDT mode</strong> and <strong>Load design</strong>.</p></li>
+<li><p>Ensure that you are connected to an active AEDT session with a solved design open.</p>
+<p>The design detail text boxes automatically populate with the relevant data from the connected session.</p>
+<a class="reference internal image-reference" href="../../_images/solved_design_workflow_home.png"><img alt="Load a solved HFSS SBR+ design" class="align-center" src="../../_images/solved_design_workflow_home.png" style="width: 800px;" />
+</a>
+</li>
+<li><p>Set the toggle to <strong>Get solution</strong>.</p></li>
+<li><p>Click <strong>Load</strong> to load the solved HFSS SBR+ design.</p>
+<p>If the results load correctly, In the menu, two additional panels become available for 3D and 2D postprocessing:</p>
+<a class="reference internal image-reference" href="../../_images/postprocessing_tabs.png"><img alt="Postprocessing tabs" class="align-center" src="../../_images/postprocessing_tabs.png" style="width: 400px;" />
+</a>
+<p>For more information, see <a class="reference internal" href="post_3d.html#post-3d"><span class="std std-ref">3D postprocessing</span></a> and <a class="reference internal" href="post_2d.html#post-2d"><span class="std std-ref">2D postprocessing</span></a>.</p>
+</li>
+<li><p>Change 3D settings if needed. For more information, see <a class="reference internal" href="#settings-3d"><span class="std std-ref">Access 3D settings</span></a>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Once the design loads, you cannot modify the radar configuration.</p>
+</div>
+</section>
+<section id="duplicate-an-hfss-design">
+<span id="duplicate-design"></span><h1>Duplicate an HFSS design<a class="headerlink" href="#duplicate-an-hfss-design" title="Link to this heading">#</a></h1>
+<p>Use this workflow to duplicate an HFSS SBR+ design:</p>
+<ol class="arabic">
+<li><p>Go to the <strong>Home</strong> menu on the left sidebar.</p></li>
+<li><p>Set the toggles to <strong>AEDT Mode</strong> and <strong>Load design</strong>.</p></li>
+<li><p>Ensure that you are connected to an active AEDT session with a solved HFSS SBR+ open.</p>
+<p>The design detail text boxes automatically populate with data from the connected session.</p>
+<a class="reference internal image-reference" href="../../_images/duplicate_design_tab.png"><img alt="Design detail text boxes with populated data" class="align-center" src="../../_images/duplicate_design_tab.png" style="width: 800px;" />
+</a>
+</li>
+<li><p>Set the toggle to <strong>New solution</strong>.</p></li>
+<li><p>Click <strong>Load</strong> to load the solved HFSS SBR+ design.</p>
+<a class="reference internal image-reference" href="../../_images/duplicate_design.png"><img alt="Solved HFSS SBR+ design" class="align-center" src="../../_images/duplicate_design.png" style="width: 800px;" />
+</a>
+<p>In the menu, two additional panels become available for 3D and 2D postprocessing. For more information, see <a class="reference internal" href="post_3d.html#post-3d"><span class="std std-ref">3D postprocessing</span></a> and <a class="reference internal" href="post_2d.html#post-2d"><span class="std std-ref">2D postprocessing</span></a>.</p>
+</li>
+<li><p>Change 3D settings if needed. For more information, see <a class="reference internal" href="#settings-3d"><span class="std std-ref">Access 3D settings</span></a>.</p></li>
+<li><p>Start radar configuration. For more information, see <a class="reference internal" href="radar_configuration.html#radar-configuration"><span class="std std-ref">Radar configuration</span></a>.</p></li>
+</ol>
+</section>
+<section id="load-an-analysis-setup-file">
+<span id="load-configuration"></span><h1>Load an analysis setup file<a class="headerlink" href="#load-an-analysis-setup-file" title="Link to this heading">#</a></h1>
+<p>Use this workflow to reload previous work by importing an analysis setup file or radar metadata file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These files, generated by the toolkit when a simulation launches, are located in the <code class="docutils literal notranslate"><span class="pre">*YourProjectName*.pyaedt</span></code> directory.</p>
+<ul class="simple">
+<li><p>If the file contains results, you do not need to connect to HFSS.</p></li>
+<li><p>If the file contains results, you cannot modify the radar configuration.</p></li>
+</ul>
+</div>
+<ol class="arabic">
+<li><p>Go to the <strong>Home</strong> panel on the left sidebar.</p></li>
+<li><p>Set the toggle to <strong>File Mode</strong>.</p></li>
+<li><p>Click the file icon to browse to and select an exported data file.</p>
+<a class="reference internal image-reference" href="../../_images/load_file.png"><img alt="Load an exported data file" class="align-center" src="../../_images/load_file.png" style="width: 800px;" />
+</a>
+<p>In the menu, two additional panels become available for 3D and 2D postprocessing. For more information, see <a class="reference internal" href="post_3d.html#post-3d"><span class="std std-ref">3D postprocessing</span></a> and <a class="reference internal" href="post_2d.html#post-2d"><span class="std std-ref">2D postprocessing</span></a>.</p>
+</li>
+<li><p>Change 3D settings if needed. For more information, see <a class="reference internal" href="#settings-3d"><span class="std std-ref">Access 3D settings</span></a>.</p></li>
+</ol>
+</section>
+<section id="access-3d-settings">
+<span id="settings-3d"></span><h1>Access 3D settings<a class="headerlink" href="#access-3d-settings" title="Link to this heading">#</a></h1>
+<p>Access the <strong>3D settings</strong> panel by clicking the gear icon in the <strong>Home</strong> panel:</p>
+<a class="reference internal image-reference" href="../../_images/settings_3d_access.png"><img alt="Gear icon for accessing 3D settings" class="align-center" src="../../_images/settings_3d_access.png" style="width: 800px;" />
+</a>
+<p>The 3D settings shown under <strong>Model settings</strong> and <strong>Plot settings</strong> depend on whether an <a class="reference internal" href="#settings-3d-object"><span class="std std-ref">object</span></a> or <a class="reference internal" href="#settings-3d-solved-data"><span class="std std-ref">solved data</span></a> is loaded. For either an object or solved data, the <strong>Projection</strong> setting can be <strong>Perspective</strong> or <strong>Orthographic</strong>.</p>
+<section id="d-model-and-plot-settings-for-an-object">
+<span id="settings-3d-object"></span><h2>3D model and plot settings for an object<a class="headerlink" href="#d-model-and-plot-settings-for-an-object" title="Link to this heading">#</a></h2>
+<p>Under <strong>Model settings</strong>, these settings are available for an object:</p>
+<ul class="simple">
+<li><p><strong>Name</strong>: Name of the object.</p></li>
+<li><p><strong>Show</strong>: Whether to show the object.</p></li>
+<li><p><strong>Color</strong>: Color to show the object in. You can choose from <a class="reference external" href="https://docs.pyvista.org/api/utilities/_autosummary/pyvista.color">PyVista color options</a>.</p></li>
+<li><p><strong>Opacity</strong>: Value between 0 (transparent) and 1 (opaque).</p></li>
+</ul>
+<p>Under <strong>Plot settings</strong>, these settings are available for an object:</p>
+<ul class="simple">
+<li><p><strong>Solution</strong>: Name of the solution.</p></li>
+<li><p><strong>Name</strong>: Name of the object, which is read-only.</p></li>
+<li><p><strong>Show</strong>: Whether to show the object.</p></li>
+<li><p><strong>Colormap</strong>: Color mapping for the results.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/settings_3d.png"><img alt="3D settings for an object" class="align-center" src="../../_images/settings_3d.png" style="width: 800px;" />
+</a>
+</section>
+<section id="d-model-and-plot-settings-for-solved-data">
+<span id="settings-3d-solved-data"></span><h2>3D model and plot settings for solved data<a class="headerlink" href="#d-model-and-plot-settings-for-solved-data" title="Link to this heading">#</a></h2>
+<p>Under <strong>Model settings</strong>, these settings are available for solved data:</p>
+<ul class="simple">
+<li><p><strong>Color</strong>: Color to show the data in.</p></li>
+<li><p><strong>Opacity</strong>: Value between 0 (transparent) and 1 (opaque).</p></li>
+</ul>
+<p>Under <strong>Plot settings</strong>, these settings are available for solved data:</p>
+<ul class="simple">
+<li><p><strong>Show</strong>: Whether to show the data.</p></li>
+<li><p><strong>Colormap</strong>: Color mapping for the results.</p></li>
+<li><p><strong>Opacity</strong>: Choose from available <a class="reference external" href="https://docs.pyvista.org/examples/02-plot/opacity.html">PyVista opacity options</a></p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/plot_3d_settings.png"><img alt="3D settings" class="align-center" src="../../_images/plot_3d_settings.png" style="width: 800px;" />
+</a>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Workflows</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-geometry">Import a geometry</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-a-solved-hfss-design">Load a solved HFSS design</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#duplicate-an-hfss-design">Duplicate an HFSS design</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-an-analysis-setup-file">Load an analysis setup file</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#access-3d-settings">Access 3D settings</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-model-and-plot-settings-for-an-object">3D model and plot settings for an object</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-model-and-plot-settings-for-solved-data">3D model and plot settings for solved data</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item"> 
+<div class="tocsection editthispage">
+  <a href="https://github.com/ansys/ansys-aedt-toolkits-radar-explorer/edit/main/doc/source/toolkit/user_interface/workflows.rst">
+    <i class="fa-solid fa-pencil"></i>
+       Edit
+    on GitHub  
+  </a>
+</div>
+
+</div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/toolkit/user_interface/workflows.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+
+  <!-- Include desired assets -->
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.7/require.min.js"></script>
+
+<script>
+// Passing the search options to the search.js file
+const SEARCH_OPTIONS = JSON.parse('{"keys": ["title", "text", "objectID"], "limit": 10, "threshold": 0.2}');
+const SEARCH_FILE = "../../_static/search.json";
+const ADVANCE_SEARCH_PATH = "../../search.html";
+const EXTRA_SOURCES = JSON.parse('""');
+</script>
+
+
+<script src="../../_static/js/search.js"></script>
+
+  
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright (c) 2026 ANSYS, Inc. All rights reserved.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the
+  <a href="https://sphinxdocs.ansys.com/version/stable/index.html"
+    >Ansys Sphinx Theme</a
+  >
+  1.6.0. <br />Last updated on
+  <span id="ast_build_date"></span>
+</p>
+<script>
+  var options = { day: "numeric", month: "long", year: "numeric" };
+  var ast_lastModifiedDate = new Date(document.lastModified);
+  var ast_build_date = ast_lastModifiedDate.toLocaleDateString("en-US", options);
+  document.getElementById("ast_build_date").innerHTML = ast_build_date;
+</script></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

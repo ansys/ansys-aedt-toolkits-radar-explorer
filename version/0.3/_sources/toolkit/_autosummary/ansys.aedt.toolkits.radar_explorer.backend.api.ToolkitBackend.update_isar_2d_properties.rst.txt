@@ -1,0 +1,6 @@
+update\_isar\_2d\_properties
+============================
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. automethod:: ToolkitBackend.update_isar_2d_properties

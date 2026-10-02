@@ -1,0 +1,6 @@
+available\_incident\_wave\_theta
+================================
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. autoproperty:: MonostaticRCSData.available_incident_wave_theta

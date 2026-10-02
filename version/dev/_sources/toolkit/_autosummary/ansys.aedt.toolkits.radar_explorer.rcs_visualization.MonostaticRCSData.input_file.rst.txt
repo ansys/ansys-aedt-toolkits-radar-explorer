@@ -1,0 +1,6 @@
+input\_file
+===========
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. autoproperty:: MonostaticRCSData.input_file

@@ -1,0 +1,6 @@
+upsample\_range
+===============
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. autoproperty:: MonostaticRCSData.upsample_range
