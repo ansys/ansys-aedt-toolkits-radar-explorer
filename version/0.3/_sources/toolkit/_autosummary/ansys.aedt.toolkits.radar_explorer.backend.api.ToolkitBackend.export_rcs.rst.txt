@@ -1,0 +1,6 @@
+export\_rcs
+===========
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. automethod:: ToolkitBackend.export_rcs

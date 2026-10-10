@@ -1,0 +1,6 @@
+update\_range\_profile\_properties
+==================================
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. automethod:: ToolkitBackend.update_range_profile_properties

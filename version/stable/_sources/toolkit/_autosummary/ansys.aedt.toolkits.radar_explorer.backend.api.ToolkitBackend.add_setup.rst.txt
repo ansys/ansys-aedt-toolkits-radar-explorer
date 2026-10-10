@@ -1,0 +1,6 @@
+add\_setup
+==========
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. automethod:: ToolkitBackend.add_setup

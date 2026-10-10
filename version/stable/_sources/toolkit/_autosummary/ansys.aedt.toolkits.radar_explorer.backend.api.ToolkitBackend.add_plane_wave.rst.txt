@@ -1,0 +1,6 @@
+add\_plane\_wave
+================
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. automethod:: ToolkitBackend.add_plane_wave

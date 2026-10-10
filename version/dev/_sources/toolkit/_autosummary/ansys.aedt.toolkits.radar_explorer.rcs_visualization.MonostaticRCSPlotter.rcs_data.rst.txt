@@ -1,0 +1,6 @@
+rcs\_data
+=========
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. autoproperty:: MonostaticRCSPlotter.rcs_data

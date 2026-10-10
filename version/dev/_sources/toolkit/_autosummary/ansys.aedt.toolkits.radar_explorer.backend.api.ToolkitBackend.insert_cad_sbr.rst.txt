@@ -1,0 +1,6 @@
+insert\_cad\_sbr
+================
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. automethod:: ToolkitBackend.insert_cad_sbr

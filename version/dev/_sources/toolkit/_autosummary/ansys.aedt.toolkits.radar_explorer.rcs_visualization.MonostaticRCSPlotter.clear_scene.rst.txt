@@ -1,0 +1,6 @@
+clear\_scene
+============
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. automethod:: MonostaticRCSPlotter.clear_scene
