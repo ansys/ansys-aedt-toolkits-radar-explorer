@@ -1,0 +1,6 @@
+get\_thread\_status
+===================
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. automethod:: ToolkitBackend.get_thread_status
