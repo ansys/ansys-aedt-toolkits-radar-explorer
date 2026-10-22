@@ -1,0 +1,6 @@
+update\_waterfall\_properties
+=============================
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. automethod:: ToolkitBackend.update_waterfall_properties

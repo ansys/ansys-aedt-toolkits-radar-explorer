@@ -1,0 +1,6 @@
+generate\_3d\_component
+=======================
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. automethod:: ToolkitBackend.generate_3d_component
