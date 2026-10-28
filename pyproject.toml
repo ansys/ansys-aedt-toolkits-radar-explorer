@@ -63,7 +63,7 @@ tests = [
     "pytest-qt",
 ]
 quality = [
-  "prek,
+  "prek",
   "ruff",
   "ty",
 ]
@@ -84,9 +84,11 @@ default-groups = []
 exclude-newer = "1 week"
 
 [tool.uv.exclude-newer-package]
+ansys-aedt-toolkits-common = false
 ansys-sphinx-theme = false
 ansys-tools-common = false
 ansys-tools-visualization-interface = false
+pyaedt = false
 pyedb = false
 # NOTE: Temporary override to allow the certifi release fixing the eMudhra/emSign CA incident
 # (GHSA-6q48-6c7w-9gw2) despite the rolling exclude-newer window.
