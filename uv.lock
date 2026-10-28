@@ -22,12 +22,14 @@ exclude-newer = "0001-01-01T00:00:00Z" # This has no effect and is included for 
 exclude-newer-span = "P1W"
 
 [options.exclude-newer-package]
+ansys-aedt-toolkits-common = false
 ansys-sphinx-theme = false
 ansys-tools-common = false
 ansys-tools-visualization-interface = false
 certifi = false
 grpcio = false
 prek = false
+pyaedt = false
 pyedb = false
 
 [[package]]
@@ -396,19 +398,19 @@ dev = [
     { name = "jupytext" },
     { name = "nbsphinx" },
     { name = "numpydoc" },
-    { name = "prek", specifier = ">=0.5.0" },
+    { name = "prek" },
     { name = "pypandoc" },
     { name = "pytest" },
     { name = "pytest-cov" },
     { name = "pytest-qt" },
     { name = "pyvista", extras = ["jupyter"] },
     { name = "recommonmark" },
-    { name = "ruff", specifier = ">=0.16.0" },
+    { name = "ruff" },
     { name = "sphinx" },
     { name = "sphinx-autobuild" },
     { name = "sphinx-copybutton" },
     { name = "sphinx-design" },
-    { name = "ty", specifier = ">=0.0.49" },
+    { name = "ty" },
 ]
 doc = [
     { name = "ansys-sphinx-theme", specifier = ">=1.8.2" },
@@ -427,9 +429,9 @@ doc = [
     { name = "sphinx-design" },
 ]
 quality = [
-    { name = "prek", specifier = ">=0.5.0" },
-    { name = "ruff", specifier = ">=0.16.0" },
-    { name = "ty", specifier = ">=0.0.49" },
+    { name = "prek" },
+    { name = "ruff" },
+    { name = "ty" },
 ]
 tests = [
     { name = "flask" },
