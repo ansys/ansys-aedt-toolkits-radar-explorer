@@ -1,0 +1,6 @@
+stretch\_data
+=============
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.rcs_visualization
+
+.. automethod:: MonostaticRCSPlotter.stretch_data

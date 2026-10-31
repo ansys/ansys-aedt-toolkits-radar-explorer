@@ -1,0 +1,6 @@
+get\_project\_name
+==================
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. automethod:: ToolkitBackend.get_project_name

@@ -1,0 +1,6 @@
+open\_project
+=============
+
+.. currentmodule:: ansys.aedt.toolkits.radar_explorer.backend.api
+
+.. automethod:: ToolkitBackend.open_project
