@@ -53,7 +53,7 @@ jobs:
       pull-requests: read # Needed to check the title of the PR
     steps:
       - name: Check the title of the pull request
-        uses: ansys/actions/check-pr-title@a5c8d0d92928e144130a3c64aa7200b9547785de #v11.1.3
+        uses: ansys/actions/check-pr-title@f5e1481b9c128197a30d1dc1dfc52b8cd6865555 #v11.1.5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           use-upper-case: true
@@ -81,7 +81,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: "Label pull-request"
-        uses: actions/labeler@f27b608878404679385c85cfa523b85ccb86e213 # v6.1.0
+        uses: actions/labeler@bf12e9b00b37c5c0ca2b87b79b2daf7891dbda13 # v7.0.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -96,7 +96,7 @@ jobs:
       !contains(github.event.pull_request.labels.*.name, 'ci:skip') &&
       !contains(github.event.pull_request.labels.*.name, 'docs:changelog:skip')
     steps:
-      - uses: ansys/actions/doc-changelog@a5c8d0d92928e144130a3c64aa7200b9547785de #v11.1.3
+      - uses: ansys/actions/doc-changelog@f5e1481b9c128197a30d1dc1dfc52b8cd6865555 #v11.1.5
         with:
           token: ${{ secrets.PYANSYS_CI_BOT_TOKEN }}
           use-pull-request-title: true
@@ -111,7 +111,7 @@ jobs:
     permissions:
       contents: read   # Required to read repository content for vulnerability scanning
     steps:
-      - uses: ansys/actions/check-vulnerabilities@a5c8d0d92928e144130a3c64aa7200b9547785de #v11.1.3
+      - uses: ansys/actions/check-vulnerabilities@f5e1481b9c128197a30d1dc1dfc52b8cd6865555 #v11.1.5
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
           python-package-name: ${{ env.LIBRARY_NAME }}
@@ -126,7 +126,7 @@ jobs:
       contents: read
     needs: vulnerabilities
     steps:
-      - uses: ansys/actions/check-actions-security@a5c8d0d92928e144130a3c64aa7200b9547785de #v11.1.3
+      - uses: ansys/actions/check-actions-security@f5e1481b9c128197a30d1dc1dfc52b8cd6865555 #v11.1.5
         with:
           generate-summary: true
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -140,7 +140,7 @@ jobs:
       contents: read
       pull-requests: read # Needed for vale to access the content to check
     steps:
-      - uses: ansys/actions/doc-style@a5c8d0d92928e144130a3c64aa7200b9547785de #v11.1.3
+      - uses: ansys/actions/doc-style@f5e1481b9c128197a30d1dc1dfc52b8cd6865555 #v11.1.5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -153,9 +153,9 @@ jobs:
       contents: read
     steps:
       - name: Set up headless display
-        uses: pyvista/setup-headless-display-action@5bc8de3bc71fcda7a96439571287a554901541a0 # v4.3
+        uses: pyvista/setup-headless-display-action@10e6efb97af3cd1523828f0e22c39f0e4567f3e4 # v5.2.0
 
-      - uses: ansys/actions/doc-build@a5c8d0d92928e144130a3c64aa7200b9547785de #v11.1.3
+      - uses: ansys/actions/doc-build@f5e1481b9c128197a30d1dc1dfc52b8cd6865555 #v11.1.5
         with:
           add-pdf-html-docs-as-assets: true
           check-links: false
@@ -176,7 +176,7 @@ jobs:
         os : [windows-latest, ubuntu-latest]
         python: ['3.10', '3.11', '3.12', '3.13']
     steps:
-      - uses: ansys/actions/build-wheelhouse@a5c8d0d92928e144130a3c64aa7200b9547785de #v11.1.3
+      - uses: ansys/actions/build-wheelhouse@f5e1481b9c128197a30d1dc1dfc52b8cd6865555 #v11.1.5
         with:
           library-name: ${{ env.LIBRARY_NAME }}
           operating-system: ${{ matrix.os }}
@@ -195,7 +195,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
@@ -207,7 +207,7 @@ jobs:
           python -m pip --disable-pip-version-check install --no-cache-dir --force-reinstall "pip @ https://files.pythonhosted.org/packages/3f/06/3e4420302363fbb71be3c7f35ce042f54bfca330e3e66b3a2e3c4cca579f/pip-26.2.2-py3-none-any.whl#sha256=fd7f4dfa8190e014013b9f08f3e973f4e4c26ffd179a204895533a7254813a70"
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           activate-environment: true
           enable-cache: false
@@ -271,7 +271,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
 
@@ -283,7 +283,7 @@ jobs:
           python -m pip --disable-pip-version-check install --no-cache-dir --force-reinstall "pip @ https://files.pythonhosted.org/packages/3f/06/3e4420302363fbb71be3c7f35ce042f54bfca330e3e66b3a2e3c4cca579f/pip-26.2.2-py3-none-any.whl#sha256=fd7f4dfa8190e014013b9f08f3e973f4e4c26ffd179a204895533a7254813a70"
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           activate-environment: true
           enable-cache: false
@@ -386,7 +386,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: ${{ env.TESTS_PYTHON_VERSIONS }}
 
@@ -398,7 +398,7 @@ jobs:
           python -m pip --disable-pip-version-check install --no-cache-dir --force-reinstall "pip @ https://files.pythonhosted.org/packages/3f/06/3e4420302363fbb71be3c7f35ce042f54bfca330e3e66b3a2e3c4cca579f/pip-26.2.2-py3-none-any.whl#sha256=fd7f4dfa8190e014013b9f08f3e973f4e4c26ffd179a204895533a7254813a70"
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39 # v8.2.0
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           enable-cache: false
           prune-cache: true
@@ -454,7 +454,7 @@ jobs:
           path: .cov/total-html
           name: html-total-coverage
 
-      - uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0
+      - uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
         with:
           name: codecov-tests-linux
           files: .cov/total.xml
@@ -475,7 +475,7 @@ jobs:
           persist-credentials: false
 
       - name: Set up Python
-        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: ${{ env.TESTS_PYTHON_VERSIONS }}
 
@@ -487,7 +487,7 @@ jobs:
           python -m pip --disable-pip-version-check install --no-cache-dir --force-reinstall "pip @ https://files.pythonhosted.org/packages/3f/06/3e4420302363fbb71be3c7f35ce042f54bfca330e3e66b3a2e3c4cca579f/pip-26.2.2-py3-none-any.whl#sha256=fd7f4dfa8190e014013b9f08f3e973f4e4c26ffd179a204895533a7254813a70"
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39 # v8.2.0
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
         with:
           enable-cache: false
           prune-cache: true
@@ -535,7 +535,7 @@ jobs:
       contents: read
       id-token: write # Required for OIDC token generation (for provenance signing)
     steps:
-      - uses: ansys/actions/build-library@a5c8d0d92928e144130a3c64aa7200b9547785de #v11.1.3
+      - uses: ansys/actions/build-library@f5e1481b9c128197a30d1dc1dfc52b8cd6865555 #v11.1.5
         with:
           library-name: ${{ env.LIBRARY_NAME }}
           python-version: ${{ env.MAIN_PYTHON_VERSION }}
